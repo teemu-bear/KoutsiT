@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TPV naisten viikkorytmi</title>
+<meta name="description" content="TPV:n Edustuksen ja Naiset 2:n viikkorytmi ja harjoitusrungot 2026–27.">
+<meta name="theme-color" content="#f3f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111613" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Viikkorytmi">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Viikkorytmi</h1>
+    <p>Edustus ja Naiset 2, marraskuu 2026 – huhtikuu 2027. Valitse vaihe ja viikkotyyppi, ja napauta päivää nähdäksesi harjoituksen rungon.</p>
+  </header>
+
+  <div>
+    <div class="label" id="lblPhase">Vaihe</div>
+    <div class="tabs" role="tablist" aria-labelledby="lblPhase" id="tabs"></div>
+  </div>
+
+  <div>
+    <div class="label" id="lblType">Viikkotyyppi</div>
+    <div class="seg" id="seg" aria-labelledby="lblType"></div>
+  </div>
+
+  <p class="note" id="note"></p>
+
+  <div id="schoolWrap">
+    <div class="label" id="lblSchool">Lukion aikataulu tässä vaiheessa</div>
+    <div class="school" id="school" aria-labelledby="lblSchool"></div>
+  </div>
+
+  <section class="chart" aria-label="Viikon kuorma">
+    <div class="bars" id="bars"></div>
+    <div class="days" id="daylabels"></div>
+  </section>
+
+  <div class="legend" id="legend"></div>
+
+  <div class="list" id="list"></div>
+
+  <section class="all" aria-labelledby="allH">
+    <h2 id="allH">Lukion aikataulu 2026–27</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Ajankohta</th><th>Vk</th><th>Tapahtuma</th><th>Harjoittelussa</th></tr></thead>
+      <tbody id="allBody"></tbody>
+    </table></div>
+    <p>Tampereen kaupungin lukiot (<a href="https://www.tampere.fi/en/pyynikin-lukio-upper-secondary-school/opiskelijalle/school-calendar" target="_blank" rel="noopener">Pyynikin lukion kalenteri</a>). Tarkista muiden oppilaitosten pelaajilta heidän omat koeviikkonsa.</p>
+  </section>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
