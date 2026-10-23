@@ -1,0 +1,17 @@
+{
+  "name": "TPV naisten viikkorytmi",
+  "short_name": "Viikkorytmi",
+  "description": "Edustuksen ja Naiset 2:n viikkorytmi ja harjoitusrungot 2026–27.",
+  "lang": "fi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f5f2",
+  "theme_color": "#1f6b45",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
