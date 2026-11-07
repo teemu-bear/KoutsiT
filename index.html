@@ -1,30 +1,191 @@
 <!doctype html>
-<html lang="fi">
-<head>
+<html lang="fi"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>TPV naisten viikkorytmi</title>
-<meta name="description" content="TPV:n Edustuksen ja Naiset 2:n viikkorytmi ja harjoitusrungot 2026–27.">
-<meta name="theme-color" content="#f3f5f2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111613" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1f6b45">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Viikkorytmi">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>TPV naisten viikkorytmi</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>
+window.SITE_MODE=true;
+(function(){var U="";function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k)||"null");localStorage.setItem(k,JSON.stringify(v));}catch(e){return null;}}
+var cached=ls("tpv_jopox");if(cached&&cached.t)window.__JOPOX_LIVE=cached;
+if(!U){window.__boot=Promise.resolve();return;}
+var timeout=new Promise(function(r){setTimeout(r,2500);});
+var live=fetch(U,{cache:"no-store"}).then(function(r){return r.json();}).then(function(j){if(j&&j.t&&Object.keys(j.t).length){window.__JOPOX_LIVE=j;ls("tpv_jopox",j);}}).catch(function(){});
+window.__boot=Promise.race([live,timeout]);})();
+if("serviceWorker" in navigator)window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});
+</script>
+</head><body>
+
+
+
+<style>
+/* Layout: kenttäpäiväkirja – vaihevälilehdet, viikkotyypin valinta, 7 päivän nauha kuormapalkkeineen, päivä aukeaa napauttamalla */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --fg:#17201b; --muted:#5d6b63; --line:#d8ded9; --pitch:#1f6b45;
+  --kova:#c8442f; --keski:#d38a12; --kevyt:#3f8f5a; --sali:#2f63a8; --peli:#6c4bb0; --lepo:#9aa59f;
+  --koulu:#0f6f7a; --koulu-bg:#e3f1f2;
+  --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111613; --surface:#1a211d; --fg:#e7ece8; --muted:#9aa8a0; --line:#2d3631; --pitch:#5cc48a;
+  --kova:#ec6a54; --keski:#e8a53a; --kevyt:#5fb67b; --sali:#6a9ae0; --peli:#a487e3; --lepo:#6f7a74; --koulu:#5fc7d2; --koulu-bg:#12292c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111613; --surface:#1a211d; --fg:#e7ece8; --muted:#9aa8a0; --line:#2d3631; --pitch:#5cc48a;
+  --kova:#ec6a54; --keski:#e8a53a; --kevyt:#5fb67b; --sali:#6a9ae0; --peli:#a487e3; --lepo:#6f7a74; --koulu:#5fc7d2; --koulu-bg:#12292c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+header h1{font-family:var(--f-display);font-weight:700;font-size:2.1rem;line-height:1;margin:0;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted);max-width:60ch}
+.label{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.tabs button,.seg button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;white-space:nowrap}
+.tabs button{padding:8px 12px;font-family:var(--f-display);font-weight:600;font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em;display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.tabs button small{font-family:var(--f-body);font-weight:400;text-transform:none;letter-spacing:0;font-size:.75rem;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--pitch);border-color:var(--pitch);color:#fff}
+.tabs button[aria-selected="true"] small{color:rgba(255,255,255,.8)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{padding:6px 11px;font-size:.88rem}
+.seg button[aria-pressed="true"]{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg);font-weight:600}
+button:focus-visible{outline:2px solid var(--pitch);outline-offset:2px}
+.note{margin:0;color:var(--muted);font-size:.9rem;max-width:65ch}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 12px 10px}
+.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;align-items:end;height:110px}
+.bar{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;cursor:pointer;border:0;background:none;padding:0;font:inherit;color:var(--fg)}
+.bar span.b{width:100%;border-radius:4px 4px 0 0;min-height:6px}
+.bar.sel span.b{outline:2px solid var(--fg);outline-offset:1px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:6px;border-top:1px solid var(--line);padding-top:6px}
+.days div{text-align:center;font-family:var(--f-display);font-weight:600;font-size:1rem}
+.days div small{display:block;font-family:var(--f-body);font-weight:400;font-size:.68rem;color:var(--muted);line-height:1.2}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.list{display:flex;flex-direction:column;gap:8px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.day>button{all:unset;cursor:pointer;display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;width:100%;padding:12px 14px 12px 0;box-sizing:border-box}
+.day>button:focus-visible{outline:2px solid var(--pitch);outline-offset:-2px}
+.stripe{align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:var(--f-display);font-weight:700;font-size:1.15rem;letter-spacing:.03em}
+.title{min-width:0}
+.title strong{display:block;font-weight:600}
+.title span{color:var(--muted);font-size:.85rem}
+.pill{font-family:var(--f-mono);font-size:.72rem;padding:3px 7px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.detail{padding:0 14px 14px 60px;display:flex;flex-direction:column;gap:10px}
+.detail table{width:100%;border-collapse:collapse;font-size:.86rem}
+.detail td{padding:6px 6px 6px 0;border-top:1px solid var(--line);vertical-align:top}
+.detail td:first-child{font-family:var(--f-mono);font-size:.76rem;color:var(--muted);white-space:nowrap;width:62px;font-variant-numeric:tabular-nums}
+.detail p{margin:0;font-size:.86rem;color:var(--muted)}
+.tw{overflow-x:auto}
+.school{display:flex;flex-direction:column;gap:6px}
+.school .row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--koulu-bg);border-left:3px solid var(--koulu);border-radius:0 6px 6px 0;padding:8px 12px}
+.school .when{font-family:var(--f-mono);font-size:.76rem;color:var(--koulu);white-space:nowrap;padding-top:2px;font-variant-numeric:tabular-nums}
+.school .what{min-width:0;font-size:.88rem}
+.school .what strong{display:block;font-weight:600}
+.school .what span{color:var(--muted)}
+.all{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.all h2{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:1.3rem;margin:0;letter-spacing:.02em}
+.all table{width:100%;border-collapse:collapse;font-size:.86rem}
+.all td,.all th{text-align:left;padding:7px 8px 7px 0;border-top:1px solid var(--line);vertical-align:top}
+.all th{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.75rem;color:var(--muted);border-top:0}
+.all td:first-child{font-family:var(--f-mono);font-size:.76rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.all p{margin:0;font-size:.8rem;color:var(--muted)}
+.all a{color:var(--koulu)}
+.sec-h{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:1.45rem;margin:8px 0 0;letter-spacing:.02em;line-height:1.1}
+.next{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.nhead{padding:14px 16px 12px;border-left:6px solid;display:flex;flex-direction:column;gap:6px}
+.nhead h2{font-family:var(--f-display);font-weight:700;font-size:1.6rem;line-height:1.1;margin:0;text-wrap:balance}
+.nmeta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:.84rem;color:var(--muted)}
+.nbody{padding:4px 16px 8px;display:flex;flex-direction:column;gap:10px}
+.nbody p,.detail p{margin:0;font-size:.88rem;color:var(--muted);max-width:65ch}
+.ref{font-style:italic}
+a.rpe,.detail a.rpe{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;font-weight:600;font-size:.9rem;color:var(--surface);background:var(--pitch);border-radius:999px;padding:7px 15px;text-decoration:none}
+a.rpe:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.rpewrap{display:flex;flex-direction:column;gap:4px;margin-bottom:4px}.rpewrap small{color:var(--muted);font-size:.8rem}
+.rpebar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--bg);font-size:.88rem;color:var(--muted)}
+.linkbtn{font:inherit;cursor:pointer;background:none;border:0;border-top:1px solid var(--line);width:100%;text-align:left;padding:11px 16px;color:var(--pitch);font-weight:600}
+.drills{display:flex;flex-direction:column}
+.drill{display:grid;grid-template-columns:66px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.dt{font-family:var(--f-mono);font-size:.76rem;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
+.db{min-width:0;display:flex;flex-direction:column;gap:3px;font-size:.88rem}
+.db strong{font-weight:600}
+.dx{color:var(--fg)}
+.dl{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.68rem;color:var(--muted)}
+.wknav{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+.wknav button.nav{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;width:44px;height:44px;font-size:1.2rem}
+.wknav button.nav:disabled{opacity:.35;cursor:default}
+.wkc{text-align:center;min-width:0}
+.wkc .wl{font-family:var(--f-display);font-weight:700;font-size:1.4rem;text-transform:uppercase;line-height:1}
+.wkc .wl small{display:block;font-family:var(--f-body);font-weight:400;font-size:.78rem;color:var(--muted);text-transform:none;margin-top:2px}
+.wkc .wt{font-size:.88rem;font-weight:600;margin-top:4px}
+.wkbar{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.wkbar button{font:inherit;cursor:pointer;background:none;border:0;color:var(--pitch);font-weight:600;padding:4px 0}
+.wknotes{display:flex;flex-direction:column;gap:6px}
+.wknotes p{margin:0;font-size:.86rem;color:var(--muted);max-width:65ch}
+.day.isnext{border-color:var(--pitch);box-shadow:0 0 0 1px var(--pitch)}
+.stripe small{font-family:var(--f-body);font-weight:500;font-size:.66rem;letter-spacing:0;opacity:.9}
+.detail a{color:var(--pitch)}
+@media (max-width:480px){.drill{grid-template-columns:52px 1fr}}
+@media (max-width:480px){.detail{padding-left:14px}.days div small{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* RPE view */
+.wrap.rpemode>*:not(header):not(#rpeView){display:none!important}
+.wrap.rpemode header p{display:none}
+#rpeView{display:flex;flex-direction:column;gap:16px}
+.rv-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.rv-h{font-family:var(--f-display);font-weight:700;font-size:1.35rem;line-height:1.1;margin:0;letter-spacing:.01em}
+.rv-step{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rv-sess{display:flex;flex-wrap:wrap;gap:8px}
+.rv-sess button,.rv-team button,.rv-min button{font:inherit;font-weight:600;font-size:.88rem;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:999px;padding:7px 13px;cursor:pointer}
+.rv-sess button[aria-pressed="true"],.rv-team button[aria-pressed="true"],.rv-min button[aria-pressed="true"]{background:var(--pitch);border-color:var(--pitch);color:var(--surface)}
+.rv-scale{display:flex;flex-direction:column;gap:6px}
+.rv-scale button{display:grid;grid-template-columns:2.4em 1fr;align-items:center;gap:10px;font:inherit;text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:8px 12px;cursor:pointer}
+.rv-scale button b{font-family:var(--f-mono);font-size:1.15rem;text-align:center;border-radius:6px;padding:2px 0;color:#fff}
+.rv-scale button[aria-pressed="true"]{border-color:var(--fg);box-shadow:0 0 0 2px var(--fg) inset}
+.rv-nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:6px}
+.rv-nums button{font:600 1rem var(--f-mono);border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:8px;padding:10px 0;cursor:pointer;font-variant-numeric:tabular-nums}
+.rv-nums button[aria-pressed="true"]{background:var(--pitch);border-color:var(--pitch);color:var(--surface)}
+.rv-send{display:block;text-align:center;font-weight:700;font-size:1.05rem;text-decoration:none;border-radius:12px;padding:14px;background:var(--pitch);color:var(--surface)}
+.rv-send[aria-disabled="true"]{background:var(--line);color:var(--muted);pointer-events:none}
+.rv-sum{font-size:.9rem;color:var(--muted);margin:0}
+.rv-done{border-color:var(--pitch)}
+.rv-back{font:inherit;background:none;border:0;color:var(--pitch);font-weight:600;cursor:pointer;padding:0;align-self:flex-start}
+#rvComment{font:inherit;width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg);color:var(--fg)}
+.rv-sess button:focus-visible,.rv-scale button:focus-visible,.rv-nums button:focus-visible,.rv-send:focus-visible,.rv-back:focus-visible{outline:2px solid var(--pitch);outline-offset:2px}
+</style>
+
 <div class="wrap">
   <header>
     <h1>Viikkorytmi</h1>
-    <p>Edustus ja Naiset 2, marraskuu 2026 – huhtikuu 2027. Valitse vaihe ja viikkotyyppi, ja napauta päivää nähdäksesi harjoituksen rungon.</p>
+    <p>Edustus ja Naiset 2, marraskuu 2026 – huhtikuu 2027. Sivu avautuu seuraavaan harjoitukseen. Selaa viikkoja nuolista ja napauta harjoitusta nähdäksesi sen sisällön. Kellonajat Jopoxista, päivitetty <span id="jopoxUpd"></span>.</p>
   </header>
+
+  <section id="rpeView" hidden aria-labelledby="rvTitle"></section>
+
+  <section class="next" id="nextCard" aria-live="polite"></section>
+
+  <section id="season" aria-labelledby="seasonH" style="display:flex;flex-direction:column;gap:12px">
+    <h2 class="sec-h" id="seasonH">Kausi viikoittain</h2>
+    <div class="wknav">
+      <button class="nav" id="prevWk" type="button" aria-label="Edellinen viikko">‹</button>
+      <div class="wkc"><div class="wl" id="wkLabel"></div><div class="wt" id="wkTheme"></div></div>
+      <button class="nav" id="nextWk" type="button" aria-label="Seuraava viikko">›</button>
+    </div>
+    <div class="wkbar"><span class="label">Harjoitukset ja pelit</span><button id="thisWk" type="button">Tämä viikko</button></div>
+    <div class="list" id="wkList"></div>
+    <div class="wknotes" id="wkNotes"></div>
+  </section>
+
+  <h2 class="sec-h">Viikkomallit</h2>
 
   <div>
     <div class="label" id="lblPhase">Vaihe</div>
@@ -61,7 +222,366 @@
     <p>Tampereen kaupungin lukiot (<a href="https://www.tampere.fi/en/pyynikin-lukio-upper-secondary-school/opiskelijalle/school-calendar" target="_blank" rel="noopener">Pyynikin lukion kalenteri</a>). Tarkista muiden oppilaitosten pelaajilta heidän omat koeviikkonsa.</p>
   </section>
 </div>
-<script src="data.js"></script>
-<script src="app.js"></script>
-</body>
-</html>
+
+<script type="application/json" id="seasonData">{"s":[{"date":"2026-10-26","wd":"Ma","title":"Futsalin perusteet: pohjakäsittely ja 3-1","notes":[],"rows":[["0–10","Lämmittely pallon kanssa","Pareittain yksi pallo, 5 m väli: pohjavedot, pohjalla pysäytys ja syöttö, kärkipotku. Lopuksi dynaamiset liikkuvuusliikkeet. MV:t lämmittelevät parina heitoilla ja käsinavauksilla","Matala","Käsite: pohjakäsittely. Kysymys: miksi pallo pysäytetään pohjalla?"],["10–22","Rondo 4v1 ja 4v2","3 ruutua 8 × 8 m, enintään kaksi kosketusta, pallo pysäytetään pohjalla. Puolustaja vaihtuu pallonmenetyksestä. 3 × 3 min, 1 min palautus","RPE 5","Käsite: syöttökulma. Kysymys: onko sinulla syöttölinja molemmille puolille?"],["22–35","3-1-rotaatio","Puolikas kenttä ja maali + MV. Neljä hyökkääjää (kolme takana, yksi pivot) vastaan ensin kaksi, sitten kolme puolustajaa. Syöttö pivotille ja syöttäjä juoksee tilaan, muut kiertävät paikat täyteen. Kaksi ryhmää vuorotellen, 6 hyökkäystä per ryhmä","20–30 s työ, 40–60 s lepo","Käsite: kierto pivot-syötön jälkeen. Kysymys: kuka täyttää tyhjäksi jääneen paikan?"],["35–55","Peli 4 + MV vastaan 4 + MV","Koko kenttä, 3–4 joukkuetta, 3 min pelit, voittaja jää kentälle. Lentävät vaihdot vaihtoalueelta. Valmentaja kertaa sääntöjä pelin aikana: sivurajapotku jalalla, 4 sekuntia aloituksissa ja MV:llä omalla puoliskolla","RPE 7","Käsite: lentävä vaihto. Kysymys: milloin on oikea hetki vaihtaa?"],["55–60","Jäähdyttely ja sääntökertaus","Kevyt venyttely. Kertaus: kerätyt virheet (6. virheestä alkaen vapaapotku ilman muuria toiselta rangaistuspisteeltä, 10 m) ja 5 m etäisyys aloituksissa","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-10-30","wd":"Pe","title":"Futsalin kertaus: puolustaminen ja erikoistilanteet","notes":[],"rows":[["0–10","Lämmittely","Syöttöneliö 10 × 10 m: pohjasyöttö, harhautus ja kärkipotku. MV:t heitot ja jalkapelaaminen","Matala","–"],["10–25","Puolustaminen 2v2 ja 3v3","Puolikas kenttä ja maali + MV, hyökkäys alkaa keskiviivalta. Puolustajat ohjaavat sivurajalle ja vaihtavat miestä ristiinjuoksussa ääneen. 90 s työ, 60 s lepo, 6 toistoa","RPE 6","Käsite: ohjaaminen ja vaihto. Kysymys: milloin seuraat ja milloin vaihdat?"],["25–37","Erikoistilanteet","Sivurajapotkun hyökkäys: 2 kuviota. Kulmapotku: 1 kuvio. Puolustus kulmissa: vyöhyke vai mies. 4 sekunnin sääntö aina käytössä","Matala","Käsite: nopea aloitus. Kysymys: kuka antaa merkin kuvion aloittamiseen?"],["37–55","Peli 4 + MV vastaan 4 + MV puoliprässillä","Koko kenttä. Puolustava joukkue asettuu keskiviivan tuntumaan ja prässää vasta, kun pallo tulee sen omalle puoliskolle. 4 min pelit, lentävät vaihdot","RPE 7","Käsite: puoliprässi. Kysymys: mikä on prässin merkki?"],["55–60","Jäähdyttely","Kevyt venyttely","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-02","wd":"Ma","title":"Pelikäsitys ja 1v1","notes":[],"rows":[["0–20","FIFA 11+ taso 1","Osat 1–3","Matala–keski","Polven linjaus"],["20–35","Rondot","3 aluetta, 5v2–6v3 15 × 15 m, kaksi kosketusta, 3 × 4 min","RPE 5","Käsite: avoin vartalo. Kysymys: näetkö kolme syöttövaihtoehtoa ennen kuin saat pallon?"],["35–55","1v1 maaleille","3 kenttää 15 × 20 m, 2 pientä maalia kummassakin päässä. Hyökkääjällä 6 s aikaa tehdä maali, 8 toistoa per pelaaja","6 s työ, 45 s lepo","Käsite: tilan valtaaminen. Kysymys: mihin puolustaja ohjaa sinua?"],["55–85","8v8 + MV","2 peliä puolikkailla kentillä (50 × 48 m), joukkueissa sekaisin N2- ja try out -pelaajia. 3 × 8 min, 2 min palautus","RPE 6","Käsite: pelinlukeminen. Kysymys: mitä näit ennen kuin sait pallon?"],["85–90","Jäähdyttely","Kevyt hölkkä ja venyttely","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-03","wd":"Ti","title":"Sali: voimaharjoitus, koko keho","notes":["Alkuun nilkkojen vahvistavat liikkeet, keskivartalon tukivoima ja koko kehon dynaamiset liikkeet. Liikkeet tehdään pareittain: a-liikkeestä suoraan b-liikkeeseen, ja palautus pidetään b-liikkeen jälkeen. V3 tarkoittaa kuormaa, jolla jää kolme toistoa varalle."],"rows":[["1a","Takakyykky","Kyykkytempo","3 × 8","V3","Suoraan 1b:hen","<a href=\"https://youtu.be/MgaiE8ZMAfU\" target=\"_blank\" rel=\"noopener\">video<\/a>"],["1b","Pallof-kierto","Painonsiirto jalasta mukaan (ei videossa)","3 × 6+6","–","1–1,5 min","<a href=\"https://youtube.com/shorts/H1f9Ws89ceQ\" target=\"_blank\" rel=\"noopener\">video<\/a>"],["2a","Askelkyykky taakse","Polvi maahan, iso liikerata","3 × 6+6","V3","Suoraan 2b:hen","<a href=\"https://youtu.be/rBbBRc2TM8U\" target=\"_blank\" rel=\"noopener\">video<\/a>"],["2b","Istumaannousu Abmatilla","Käsillä kosketukset","3 × 20","–","1–1,5 min","–"],["3a","Pystypunnerrus tangolla","Ei apua jaloista","3 × 8","V3","Suoraan 3b:hen","–"],["3b","Pystysoutu käsipainoilla","Hartian tuki","3 × 6+6","–","1–1,5 min","–"]],"cols":["Pari","Liike","Huomiot","Sarjat × toistot","Kuorma","Palautus","Video"]},{"date":"2026-11-05","wd":"To","title":"Hyrox (N2)","notes":["N2:n Hyrox-harjoitus Hyrox-vetäjän johdolla. Sisältö ei kuulu tähän suunnitelmaan. Kuormitus on kova, joten perjantain kenttäharjoituksessa ei ole erillisiä juoksuja. Try out -pelaajat eivät osallistu."],"rows":[],"cols":null},{"date":"2026-11-06","wd":"Pe","title":"Pelit ja arviointi","notes":["Fysiikkaohjelma: pelin sisällä pidemmän matkan juoksuja. Jäähdyttely: kevyt hölkkä kentän ympäri tai reunasta reunaan, sitten yhteiset dynaamiset avaukset: <a href=\"https://youtu.be/a3EUIKfs1GM\" target=\"_blank\" rel=\"noopener\">takaketju ja lonkka<\/a>, <a href=\"https://youtu.be/mmmjk8oF3-U\" target=\"_blank\" rel=\"noopener\">takaketju ja kierrot<\/a>, <a href=\"https://youtube.com/shorts/0m2o5XZZdNo\" target=\"_blank\" rel=\"noopener\">eteentaivutus jalat auki<\/a>, <a href=\"https://youtube.com/shorts/_RCiyvoIFCY\" target=\"_blank\" rel=\"noopener\">kyykistys toispolvella<\/a> ja <a href=\"https://youtu.be/RfiY9cT9-6g\" target=\"_blank\" rel=\"noopener\">etuketju toispolvella<\/a>."],"rows":[["0–20","Lämmittely","11+ osa 1 ja osa 3","Matala–keski","–"],["20–35","Rondot","3 aluetta, 6v3 20 × 20 m, kaksi kosketusta, 3 × 4 min","RPE 5","–"],["35–85","Pelit","3 kenttää (33 × 48 m), 6v6–7v7 + MV tai pienmaalit, 8 min pelit, joukkueet vaihtuvat joka pelin jälkeen","RPE 6","Käsite: päätöksenteko. Kysymys: milloin syötät eteen ja milloin pidät pallon?"],["85–90","Jäähdyttely","Valmentajat täyttävät try outin arviointilomakkeen","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-09","wd":"Ma","title":"Prässin perusteet","notes":[],"rows":[["0–20","FIFA 11+ taso 1","Osat 1–3","Matala–keski","–"],["20–30","N1","6 × 10 m kiihdytys, 60 s palautus","Maksimi","–"],["30–50","Prässin laukaisija 4v6","3 aluetta 30 × 40 m. 4 rakentaa MV:n kanssa (2 topparia + 2 kuutosta), 6 prässää. Prässi saa maalin, jos voittaa pallon 8 s:ssa. 4 × 4 min, 2 min palautus, roolit vaihtuvat","RPE 7","Käsite: prässin laukaisija. Kysymys: mikä on merkki lähteä prässiin?"],["50–85","8v8 + MV kolmella vyöhykkeellä","2 peliä puolikkailla kentillä, kumpikin jaettu kolmeen vyöhykkeeseen. Pallon voitto ylimmällä vyöhykkeellä = 2 pistettä. 3 × 8 min, 2 min palautus","RPE 7","Käsite: kompaktius. Kysymys: kuinka kaukana olet lähimmästä pelikaveristasi?"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-10","wd":"Ti","title":"Sali: voimaharjoitus, koko keho","notes":["Toistot laskevat ja intensiteetti pysyy samana kuin viikolla 45. Alkuun nilkkojen vahvistavat liikkeet, keskivartalon tukivoima ja koko kehon dynaamiset liikkeet. Liikkeet tehdään pareittain: a-liikkeestä suoraan b-liikkeeseen, ja palautus pidetään b-liikkeen jälkeen. V3 tarkoittaa kuormaa, jolla jää kolme toistoa varalle."],"rows":[["1a","Takakyykky","Kyykkytempo","3 × 6","V3","Suoraan 1b:hen","<a href=\"https://youtu.be/MgaiE8ZMAfU\" target=\"_blank\" rel=\"noopener\">video<\/a>"],["1b","Pallof-kierto","Painonsiirto jalasta mukaan (ei videossa)","3 × 6+6","–","1–1,5 min","<a href=\"https://youtube.com/shorts/H1f9Ws89ceQ\" target=\"_blank\" rel=\"noopener\">video<\/a>"],["2a","Askelkyykky taakse","Polvi maahan, iso liikerata","3 × 5+5","V3","Suoraan 2b:hen","<a href=\"https://youtu.be/rBbBRc2TM8U\" target=\"_blank\" rel=\"noopener\">video<\/a>"],["2b","Istumaannousu Abmatilla","Käsillä kosketukset","3 × 20","–","1–1,5 min","–"],["3a","Pystypunnerrus tangolla","Ei apua jaloista","3 × 6","V3","Suoraan 3b:hen","–"],["3b","Pystysoutu käsipainoilla","Hartian tuki","3 × 6+6","–","1–1,5 min","–"]],"cols":["Pari","Liike","Huomiot","Sarjat × toistot","Kuorma","Palautus","Video"]},{"date":"2026-11-12","wd":"To","title":"Hyrox (N2)","notes":["N2:n Hyrox-harjoitus Hyrox-vetäjän johdolla."],"rows":[],"cols":null},{"date":"2026-11-13","wd":"Pe","title":"Pelit ja esikarsinta","notes":["Fysiikkaohjelma: pelin sisällä pidemmän matkan juoksuja. Jäähdyttely: kevyt hölkkä kentän ympäri tai reunasta reunaan, sitten yhteiset dynaamiset avaukset: <a href=\"https://youtu.be/a3EUIKfs1GM\" target=\"_blank\" rel=\"noopener\">takaketju ja lonkka<\/a>, <a href=\"https://youtu.be/mmmjk8oF3-U\" target=\"_blank\" rel=\"noopener\">takaketju ja kierrot<\/a>, <a href=\"https://youtube.com/shorts/0m2o5XZZdNo\" target=\"_blank\" rel=\"noopener\">eteentaivutus jalat auki<\/a>, <a href=\"https://youtube.com/shorts/_RCiyvoIFCY\" target=\"_blank\" rel=\"noopener\">kyykistys toispolvella<\/a> ja <a href=\"https://youtu.be/RfiY9cT9-6g\" target=\"_blank\" rel=\"noopener\">etuketju toispolvella<\/a>."],"rows":[["0–20","Lämmittely","11+ osa 1 ja osa 3","Matala–keski","–"],["20–35","Rondot","3 aluetta, 6v3 20 × 20 m, 3 s vastaprässi pallon menetyksen jälkeen, 3 × 4 min","RPE 6","Käsite: vastaprässi. Kysymys: kuka painaa ensimmäisenä?"],["35–85","Pelit","3 kenttää (33 × 48 m), 6v6–7v7 + MV tai pienmaalit, 8 min pelit, joukkueet vaihtuvat. Valmentajat täyttävät arviointilomakkeen","RPE 6–7","–"],["85–90","Jäähdyttely","Esikarsinta kerrotaan ulkopuolisille henkilökohtaisesti viikonloppuna","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-16","wd":"Ma","title":"Vastahyökkäys: ensimmäinen syöttö eteen","notes":[],"rows":[["0–20","FIFA 11+ taso 1","Osat 1–3","Matala–keski","–"],["20–30","N2","4 × 20 m kiihdytys, 90 s palautus","Maksimi","–"],["30–50","Siirtymä 3v2 → 2v1","Kaksi aluetta puolikkailla kentillä, 2 maalia + MV. 3 hyökkää 2:ta vastaan. Kun puolustus voittaa pallon, se hyökkää heti toiseen suuntaan 2v1 yhtä palaavaa vastaan. 3 × 5 min, 2 min palautus","RPE 7","Käsite: ensimmäinen syöttö eteen. Kysymys: kuka on vapaana edessä heti pallon voiton jälkeen?"],["50–85","Siirtymäpeli 8v8 + MV","2 peliä puolikkailla kentillä. Maali 10 s:n sisällä pallon voitosta = 2 maalia. 3 × 8 min, 2 min palautus","RPE 7","Käsite: syvyys. Kysymys: kuka juoksee selustaan, kun voitamme pallon?"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-19","wd":"To","title":"Hyrox (N2)","notes":["N2:n Hyrox-harjoitus Hyrox-vetäjän johdolla. Lukioiden koeviikko alkaa, joten lukiolaisten osallistuminen on vapaaehtoista."],"rows":[],"cols":null},{"date":"2026-11-20","wd":"Pe","title":"Vastahyökkäys pelissä (N2 futsal la 21.11.)","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja dynaaminen liikkuvuus","Matala","–"],["15–30","Rondot","3 aluetta, 5v2, kaksi kosketusta, 3 × 3 min","RPE 4","–"],["30–70","Pelit","3 kenttää (33 × 48 m), 6v6–7v7, maali 10 s:n sisällä pallon voitosta = 2 maalia. 6 min pelit, joukkueet vaihtuvat","RPE 5–6","Käsite: siirtymä. Kysymys: mitä teet ensimmäisen sekunnin aikana pallon voiton jälkeen?"],["70–75","Jäähdyttely","Lyhennetty harjoitus futsalturnauksen takia","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-23","wd":"Ma","title":"Koko pelitapa","notes":["Lauantain futsalturnauksen pelanneet tekevät harjoituksesta palauttavan version."],"rows":[["0–20","FIFA 11+ taso 1","Osat 1–3","Matala–keski","–"],["20–35","Rondot 6v3","3 aluetta 20 × 20 m, pallon menetys → 3 s vastaprässi, 3 × 4 min","RPE 6","Käsite: vastaprässi. Kysymys: kuka painaa ensimmäisenä?"],["35–85","11v11","Koko kenttä 1-4-2-3-1, vaihtopelaajat vaihtuvat 5 min välein. 4 × 10 min, 2 min palautus. Arviointilomake","RPE 7","Käsite: pelitapa kokonaisuutena. Kysymys: missä prässi alkaa ja mihin se ohjaa?"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-26","wd":"To","title":"Hyrox (N2)","notes":["N2:n Hyrox-harjoitus Hyrox-vetäjän johdolla."],"rows":[],"cols":null},{"date":"2026-11-27","wd":"Pe","title":"Turnaus","notes":[],"rows":[["0–20","Lämmittely","11+ osa 1 ja osa 3","Matala–keski","–"],["20–80","Turnaus","3 kenttää (33 × 48 m), 6v6–7v7, 10 min pelit, joukkueet vaihtuvat 5 kertaa","RPE 6","–"],["80–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-11-30","wd":"Ma","title":"Testit ja pelitavan esittely: prässi","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–50","Testit","5, 10 ja 30 m sprintti (2 suoritusta, 3 min lepo) ja 8-rata (2 suoritusta, 2 min lepo). Kaksi testipistettä, ja vuoroaan odottavat tekevät rondoja 7v3","Maksimi, täysi lepo","–"],["50–60","Varjopeli 11 vs. 0","Prässin muodostus 1-4-2-3-1, valmentaja siirtää palloa, kaksi ryhmää vuorotellen","Matala","Käsite: roolit prässissä. Kysymys: kenet sinä suljet, kun pallo on toppari?"],["60–85","9v9 + MV × 2","Puolikkaat kentät, pallon voitto ylimmällä kolmanneksella = 2 pistettä. 2 × 10 min, 2 min palautus","RPE 7","Käsite: kompaktius"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-12-03","wd":"To","title":"Hyrox (edustus ja N2)","notes":["Molemmat joukkueet tekevät Hyrox-harjoituksen Hyrox-vetäjän johdolla. Sisältö ei kuulu tähän suunnitelmaan. Pelitavan rakenteen 1-4-2-3-1 esittely tehdään maanantain 30.11. varjopelissä."],"rows":[],"cols":null},{"date":"2026-12-04","wd":"Pe","title":"MAS-testi, kulmat puolustus ja lopullinen karsinta","notes":["Yhdistelmäpuolustus päästi kulmista maaleja vähiten MM 2023 -turnauksessa (<a href=\"https://pure.solent.ac.uk/en/publications/fifa-womens-world-cup-2023-australia-and-new-zealand-corner-kicks/\" target=\"_blank\" rel=\"noopener\">Solent<\/a>)."],"rows":[["0–15","Lämmittely","11+ osa 1 ja dynaaminen liikkuvuus","Matala","–"],["15–40","MAS-testi","Seuran MAS-testi kahdessa erässä. Ykkösen pelaajat (peli la 5.12.) eivät testaa nyt, vaan tekevät erikoistilanteet kevyesti ja testin ma 7.12.","Maksimi","–"],["40–45","Palautus","Kävely ja juominen","–","–"],["45–60","Kulmat puolustus","Yhdistelmäpuolustus: 4 aluepelaajaa (lähitolppa, maalialueen etureuna, keskus, takatolppa) + miesvartiointi. 10 kulmaa puolivauhtia","RPE 3","Käsite: ensimmäinen pallo pois. Kysymys: kuka vastaa toisesta pallosta?"],["60","Karsinta","Lopulliset päätökset kerrotaan henkilökohtaisesti harjoituksen jälkeen","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-12-07","wd":"Ma","title":"Korkea prässi: laukaisijat","notes":["Ykkösen pelaajat tekevät MAS-testin tämän harjoituksen MAS-osion aikana (25 min) ja jättävät 8v8-pelin väliin. Muut aloittavat MAS1-juoksut uusilla testituloksilla."],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Rondot","7v3, 3 s vastaprässi pallon menetyksen jälkeen, 3 × 4 min","RPE 6","–"],["35–60","Asemat","A: 4v4 + 4 prässi kapealla kentällä (FIFA Training Centre), 20 × 40 m, 2 maalia, 4 × 3 min. B: laukaisija 4v6. C: MV-viimeistely. D: 5v2","RPE 7","Käsite: laukaisija. Kysymys: oliko se huono ensikosketus vai takasyöttö?"],["60–73","8v8 + MV × 2","Pallon voitto ylimmällä kolmanneksella = 2 pistettä, 1 × 10 min","RPE 7","–"],["73–85","MAS1","15 s / 15 s, 100 %, 2 × 6 min, 3 min palautus","100 % MAS","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-12-10","wd":"To","title":"Hyrox (edustus ja N2)","notes":["Molemmat joukkueet tekevät Hyroxin. Hyrox-jakso päättyy tähän, ja torstai 17.12. alkaen on taas viikon kovin kenttäharjoitus."],"rows":[],"cols":null},{"date":"2026-12-11","wd":"Pe","title":"Aktivointi ja kulmat hyökkäys","notes":["Ulospäin kaartuvista kulmista syntyi eniten maaleja MM 2023 -turnauksessa (<a href=\"https://www.ebsco.com/articles/womens-studies-and-feminism/3679b84a-11ef-5186-8ac1-e4a683bec4fa/fifa-women-s-world-cup-2023-australia-and-new-zealand-corner-kicks-an-analysis-of-key-characteristics/\" target=\"_blank\" rel=\"noopener\">EBSCO<\/a>)."],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","5v5 35 × 30 m, 4 × 2 min, 2 min palautus","RPE 6","–"],["30–55","Kulmat hyökkäys","Variantti 1: ulospäin kaartuva takatolpalle, 2 blokkaajaa. Variantti 2: lyhyt kulma 2v1 ja keskitys. Variantti 3: lähitolpan jatko. 4 toistoa kutakin, 2 puolta","RPE 3","Käsite: ajoitus. Kysymys: milloin aloitat juoksusi?"],["55–60","N5","4 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-12-14","wd":"Ma","title":"Vastaprässi ja 5 sekunnin sääntö","notes":["MAS-juoksuja ei tällä viikolla tehdä, koska viikon teema on nopeus."],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Vastaprässirondo 6v4","20 × 20 m, 4 pienmaalia kulmissa. Kun 4 voittaa pallon, sillä on 6 s aikaa tehdä maali pienmaaliin. 6 painaa heti. 4 × 3 min, 2 min palautus","RPE 7","Käsite: vastaprässi. Kysymys: mitkä kolme pelaajaa painavat heti?"],["35–60","5 sekunnin peli 5v5 + 2","4 kenttää 30 × 35 m. Pallon menetyksen jälkeen 5 s aikaa voittaa se takaisin, onnistuminen = piste. 5 × 3 min, 90 s palautus","RPE 7–8","Käsite: 5 sekunnin sääntö. Kysymys: milloin luovutamme ja vetäydymme?"],["60–85","8v8 + MV × 2","Puolikkaat kentät, vastaprässillä voitettu pallo ja maali 10 s:ssa = 3 maalia. 2 × 10 min, 2 min palautus","RPE 7","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-12-17","wd":"To","title":"Vastaprässi 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–30","N4","3 × lentävä 20 m, 3 min palautus","Maksimi","–"],["30–55","Siirtymäpeli 9v9 + MV","Puolikas kenttä, keskellä 10 m siirtymävyöhyke. Pallon menetys → koko joukkue vastaprässiin 5 s, sitten vetäytyminen omalle puolelle. 3 × 6 min, 2 min palautus","RPE 8","Käsite: vetäytyminen. Kysymys: mihin vetäydymme, jos pallo ei palaa?"],["55–85","11v11","Vastaprässillä voitettu pallo = 1 piste. 3 × 10 min, 2 min palautus","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-12-18","wd":"Pe","title":"Kevyt aktivointi (molempien futsal la 19.12.)","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Rondot","5v2, kaksi kosketusta, 4 × 2 min","RPE 4","–"],["30–50","Vapaapotkut","Variantti 1 keskeltä (suora laukaus ja harhautus), variantti 2 laidalta (keskitys kahdelle juoksijalle). 5 toistoa kumpaakin, ei hyppyjä täysillä","RPE 3","Käsite: signaalit. Kysymys: mikä signaali käynnistää variantin?"],["50–60","Jäähdyttely","Venyttely","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2026-12-21","wd":"Ma","title":"Joulutauko 21.12.–3.1.","notes":["Omatoiminen ohjelma 2 viikkoa, 3 kertaa viikossa:","Jouluaatto ja joulupäivä ovat vapaita."],"rows":[["1","30 min kevyt juoksu + 11+ osa 2","Juttelutahti"],["2","MAS-juoksu 30 s / 30 s, 2 × 6 min","100 % MAS, 3 min palautus"],["3","6 × 20 m kiihdytykset + kehonhuolto 20 min","90 s palautus"]],"cols":["Kerta","Sisältö","Teho ja lepo"],"break":true},{"date":"2027-01-04","wd":"Ma","title":"Paluu: pienpelit ja rondot","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–40","Rondot","7v3 25 × 25 m, 3 × 5 min","RPE 5","–"],["40–80","4v4 ja 6v6","4 kenttää: 4v4 30 × 25 m (3 × 3 min, 2 min palautus), sitten 6v6 40 × 35 m (3 × 4 min, 2 min palautus)","RPE 6","Käsite: pelinlukeminen"],["80–90","Jäähdyttely","Ykkösen pelaajat pelaavat ke 6.1.","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-07","wd":"To","title":"Keskitasoinen (ykkösen peli ke 6.1.)","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–30","N1","6 × 10 m, 60 s","Maksimi","–"],["30–55","Prässi 4v6","30 × 40 m, 4 × 4 min, 2 min palautus","RPE 6","Kertaus: laukaisijat"],["55–85","9v9 + MV","Puolikas kenttä, 2 × 10 min. Ykkösen pelaajat: palauttava hölkkä 15 min ja venyttely 11v11:n sijaan","RPE 6","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-08","wd":"Pe","title":"Kevyt aktivointi (molempien futsal la 9.1.)","notes":["Enintään 60 min: 11+ osa 1 (10 min), 5v2-rondot (4 × 2 min), rajaheitot puolustus ja hyökkäys (15 min, 1–2 heittäjää, 3 kohdejuoksua), N5 4 × 10 m (60 s palautus)."],"rows":[],"cols":null},{"date":"2027-01-11","wd":"Ma","title":"Ensimmäinen syöttö eteen","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Suuntarondo 4v4 + 3","25 × 20 m, 3 jokeria (kaksi päädyssä, yksi keskellä). Piste, kun pallo kulkee päädystä päätyyn. 3 × 4 min","RPE 6","Käsite: pelaaminen eteenpäin. Kysymys: näitkö päätyjokerin ennen kuin sait pallon?"],["35–60","Asemat","A: siirtymä 3v2 → 2v1 (puolikas kenttä). B: syöttö kärjelle ja kolmas juoksija, 2 × 6 toistoa. C: MV-viimeistely vastahyökkäyksestä, 10 laukausta. D: 5v2","RPE 7","Käsite: ensimmäinen syöttö eteen"],["60–73","Siirtymäpeli 8v8 + MV × 2","Maali 10 s:ssa pallon voitosta = 2 maalia. 1 × 10 min","RPE 7","–"],["73–85","MAS2","15 s / 15 s, 105–110 % MAS, 2 × 6 min (täysi määrä 3 × 6 viikolla 4), 3 min palautus","105–110 % MAS","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-14","wd":"To","title":"Vastahyökkäys isolla alueella","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–30","N2","4 × 20 m, 90 s","Maksimi","–"],["30–55","Aaltohyökkäys 4v3 → 3v2","Koko kenttä, 2 maalia + MV, 4 aaltoa × 4 min, 2 min palautus","RPE 8","Käsite: nopeus. Kysymys: oliko laukaus alle 10 sekunnissa?"],["55–85","11v11","Vastahyökkäysmaali alle 10 s = 2 maalia. 3 × 10 min, 2 min palautus","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-15","wd":"Pe","title":"Aktivointi ja kulmat puolustus","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","4v4 30 × 25 m, 4 × 2 min, 2 min palautus","RPE 6","–"],["30–55","Kulmat ja vapaat puolustus","Yhdistelmäpuolustus 12 kulmaa ja muuri + aluepuolustus laitavapaissa 8 toistoa. Pallon voiton jälkeen vastahyökkäys 3v2","RPE 3–4","Käsite: vastuut. Kysymys: kuka on sinun miehesi?"],["55–60","N5","4 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-18","wd":"Ma","title":"Leveys ja syvyys","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Rondot","7v3, 3 × 4 min","RPE 5","–"],["35–60","Asemat","A: 3v2 leveyskanavat (laiturit leveillä kaistoilla, 10 m kaista). B: syöttö selustaan juoksulle, 2 × 6. C: MV-viimeistely keskityksistä, 10 per pelaaja. D: 5v2","RPE 6–7","Käsite: leveys ja syvyys. Kysymys: kuka venyttää puolustuslinjaa?"],["60–85","9v9 + MV × 2","Laitakaistat 10 m. Maali leveyden kautta = 2 maalia. 2 × 10 min, 2 min palautus","RPE 7","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-21","wd":"To","title":"Maksiminopeus ja vastahyökkäys","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–32","N3 + N4","2 × 30 m ja 2 × lentävä 20 m, 3 min palautus","Maksimi","–"],["32–55","Siirtymäpeli 8v8 + MV","Puolikas kenttä, keskiviivalla 2 vastahyökkääjää odottavat. Pallon voitto → syöttö heille, 4v2 toiseen maaliin. 3 × 6 min, 2 min palautus","RPE 8","Käsite: syvyys. Kysymys: juoksitko ennen syöttöä vai sen jälkeen?"],["55–85","11v11","3 × 10 min, 2 min palautus","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-22","wd":"Pe","title":"Aktivointi ja kulmat hyökkäys","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","5v5, 4 × 2 min, 2 min palautus","RPE 6","–"],["30–55","Kulmat hyökkäys","Varianttien 1–3 kertaus (4 toistoa kutakin), sitten vastustaja puolustaa täysillä 8 kulmaa","RPE 3–4","–"],["55–60","N5","4 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-25","wd":"Ma","title":"Prässi ja vastahyökkäys yhdessä","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Vastaprässirondo 6v4","20 × 20 m, 4 pienmaalia, 6 s sääntö, 4 × 3 min, 2 min palautus","RPE 7","–"],["35–60","Prässi → vastahyökkäys 6v4 + 2","Puolikas kenttä. 4 + MV rakentaa, 6 prässää. Pallon voitto → 2 odottavaa hyökkääjää mukaan ja hyökkäys isoon maaliin 10 s:ssa. 4 × 4 min, 2 min palautus","RPE 7–8","Käsite: voitto ja eteenpäin. Kysymys: mitä teet ensimmäisenä, kun voitat pallon?"],["60–73","8v8 + MV × 2","Ylimmällä kolmanneksella voitettu pallo ja maali 10 s:ssa = 3 maalia. 1 × 10 min","RPE 7","–"],["73–85","MAS2","15 s / 15 s, 105–110 %, 3 × 6 min, 2 min palautus (lyhennetty palautus tällä viikolla)","105–110 % MAS","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-28","wd":"To","title":"Prässi ja vastahyökkäys 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–30","N2","4 × 20 m, 90 s","Maksimi","–"],["30–55","9v9 kolmella vyöhykkeellä","Puolikas kenttä. Pallon voitto ylimmällä vyöhykkeellä = 1 piste, vastahyökkäysmaali = 2 maalia. 3 × 6 min, 2 min palautus","RPE 8","–"],["55–85","11v11","3 × 10 min, 2 min palautus","RPE 8","Käsite: koko pelitapa"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-01-29","wd":"Pe","title":"Aktivointi ja rajaheitot","notes":["N2:n futsalturnaus on su 31.1., joten ma 1.2. N2:n pelaajat tekevät kenttäharjoituksesta palauttavan version."],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","4v4, 4 × 2 min, 2 min palautus","RPE 6","–"],["30–55","Rajaheitot","Pitkä rajaheitto boksiin: 1–2 heittäjää, 3 kohdejuoksua (lähitolppa, keskus, toinen pallo). 10 toistoa, sitten puolustus samoja vastaan 8 toistoa","RPE 3","Käsite: toinen pallo. Kysymys: missä on toisen pallon paikka?"],["55–60","N5","4 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-01","wd":"Ma","title":"Korkea prässi koko joukkueella","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Rondot","7v3, 3 s vastaprässi, 3 × 4 min","RPE 6","–"],["35–60","Maalipotkun prässi 10v8","Kaksi kolmannesta kentästä. 8 + MV avaa maalipotkusta, 10 prässää 1-4-2-3-1-muodossa. Prässi saa maalin voittamalla pallon 10 s:ssa. 10 toistoa, roolit vaihtuvat","RPE 7","Käsite: prässin muodostus. Kysymys: mihin kärki seisoo maalipotkussa?"],["60–73","8v8 + MV × 2","1 × 10 min","RPE 7","–"],["73–85","MAS3","30 s / 30 s, 100–105 %, 2 × 5 min (täysi 3 × 5 viikolla 7), 3 min palautus","100–105 % MAS","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-04","wd":"To","title":"Korkea prässi 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–30","N3","3 × 30 m, 3 min","Maksimi","–"],["30–55","6v6 korkea lohko","Puolikas kenttä, 40 m leveä, 4 × 4 min, 2 min palautus","RPE 8","Käsite: kompaktius"],["55–85","11v11","Pallon voitto vastustajan kolmanneksella = 1 piste. 3 × 10 min, 2 min palautus","RPE 8","Kysymys: missä prässi murtui ja miksi?"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-05","wd":"Pe","title":"Aktivointi ja vapaapotkut hyökkäys","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","5v5, 4 × 2 min, 2 min palautus","RPE 6","–"],["30–55","Vapaapotkut","Variantit 1–2 vastustajan kanssa, 6 toistoa kumpaakin, sitten kulmat 6 toistoa","RPE 3","–"],["55–60","N5","4 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-08","wd":"Ma","title":"Prässin murtautumisen estäminen","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Rondot","7v3, 3 × 4 min","RPE 5","–"],["35–60","5v5 + 3 selustapeli","Puolikas kenttä. Siniset prässäävät, punaiset + 3 jokeria yrittävät murtautua ja syöttää selustaan (FIFA Training Centre). Prässäävän joukkueen puolustuslinja harjoittelee syvyyden suojaamista. 4 × 4 min, 2 min palautus","RPE 7","Käsite: syvyyden suojaaminen. Kysymys: milloin puolustuslinja nousee ja milloin se peruuttaa?"],["60–85","9v9 + MV × 2","Puolikkaat kentät, maali selustasyötön jälkeen = 2 maalia hyökkäävälle. 2 × 10 min, 2 min palautus","RPE 7","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-11","wd":"To","title":"Nopeus ja prässi 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–32","N4 + N5","3 × lentävä 20 m (3 min) ja 3 × 10 m reaktio (60 s)","Maksimi","–"],["32–55","Kaksi linjaa vs. kolme 7v6","Kaksi kolmannesta kentästä, 7 prässää, 6 + MV murtautuu. Murtautuminen keskiviivan yli = piste. 4 × 4 min, 2 min palautus","RPE 8","Käsite: toinen linja. Kysymys: kuka peittää, kun ensimmäinen linja ohitetaan?"],["55–85","11v11","3 × 10 min, 2 min palautus","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-12","wd":"Pe","title":"Kevyt aktivointi (N2 futsal la 13.2., ykkönen su 14.2.)","notes":["Ykkösen sunnuntaipelin takia ykkösen pelaajat tekevät ma 15.2. kenttäharjoituksesta palauttavan version ja ti 16.2. salista kevennetyn."],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","4v4, 4 × 2 min, 2 min palautus","RPE 5","–"],["30–50","Kulmat","Hyökkäys ja puolustus vuorotellen, 6 + 6 toistoa","RPE 3","–"],["50–55","N5","3 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-15","wd":"Ma","title":"Vastahyökkäys: viimeistely","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Viimeistelysarja","4 jonoa, syöttö kärjelle, seinä ja laukaus 1–2 kosketuksella, 2 × 8 laukausta per pelaaja","RPE 5","Käsite: laukaus nopeasti. Kysymys: tarvitsitko toisen kosketuksen?"],["35–60","Asemat","A: 2v1 + 3v2 viimeistely boksiin. B: keskitys ja juoksut kolmelle alueelle. C: MV-valmentaja, läpiajot. D: 5v2","RPE 7","–"],["60–73","8v8 + MV × 2","Maali vastahyökkäyksestä alle 10 s = 2 maalia. 1 × 10 min","RPE 7","–"],["73–85","MAS3","30 s / 30 s, 100–105 %, 3 × 5 min, 3 min palautus","100–105 % MAS","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-18","wd":"To","title":"Viimeistely 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–30","N2","4 × 20 m, 90 s","Maksimi","–"],["30–55","Aaltohyökkäys 4v3 → 3v2","Koko kenttä, 4 × 4 min, 2 min palautus","RPE 8","Käsite: vähintään 3 boksiin"],["55–85","11v11","3 × 10 min, 2 min palautus","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-19","wd":"Pe","title":"Kevyt aktivointi (molempien futsal la 20.2.)","notes":["Enintään 60 min: 11+ osa 1 (10 min), 5v2-rondot (4 × 2 min), vapaapotkut puolustus ilman täysiä hyppyjä (15 min), N5 3 × 10 m (60 s palautus), venyttely."],"rows":[],"cols":null},{"date":"2027-02-22","wd":"Ma","title":"Pelitapa: kertaus asemilla","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–35","Rondot","7v3 ja 3 s vastaprässi, 3 × 4 min","RPE 5","–"],["35–60","Asemat","A: laukaisija 4v6. B: 5 sekunnin peli 5v5 + 2. C: MV-viimeistely. D: siirtymä 3v2 → 2v1","RPE 6–7","Kysymys: mikä osa pelitavasta on vahvin ja mikä heikoin?"],["60–85","9v9 + MV × 2","Normaalit säännöt, 2 × 10 min, 2 min palautus","RPE 6–7","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-25","wd":"To","title":"Pelitapa 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 2","Osat 1–3","Matala–keski","–"],["20–30","N1","6 × 10 m, 60 s","Maksimi","–"],["30–85","11v11","Koko kenttä, 4 × 12 min, 2 min palautus. Jaksojen välissä 2 min videoton palaute: yksi asia prässistä, yksi vastahyökkäyksestä","RPE 7–8","Kysymys: mitä teemme ensimmäisenä seuraavassa jaksossa paremmin?"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-02-26","wd":"Pe","title":"Kevyt aktivointi (ykkösen viimeinen peli la 27.2.)","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","4v4, 4 × 2 min, 2 min palautus","RPE 5","–"],["30–55","Erikoistilanteiden kertaus","Kulmat hyökkäys 6, kulmat puolustus 6, vapaapotkut 4","RPE 3","–"],["55–60","N5","3 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-01","wd":"Ma","title":"Erikoistilanteet hyökkäys","notes":["11+ siirtyy tasolle 3 maaliskuusta. Viikko 9 on lukioiden talviloma (1.–5.3.), joten testit tehdään viikolla 10."],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–30","N1","6 × 10 m, 60 s palautus","Maksimi","–"],["30–60","Kulmat ja vapaat hyökkäys","Kaksi ryhmää: kulmat (varianttien 1–3 kertaus ja uusi variantti 4: kulmapotku rangaistusalueen reunalle laukaisijalle) 15 toistoa. Vapaapotkut variantit 1–2, 10 toistoa. Ryhmät vaihtavat","RPE 4","Käsite: suunniteltu toinen pallo. Kysymys: kuka laukoo, jos pallo poistetaan?"],["60–85","9v9 + MV × 2","Puolikkaat kentät, kaikki kulmat ja vapaat pelataan. 2 × 10 min, 2 min palautus","RPE 7","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-04","wd":"To","title":"11v11 ja erikoistilanteet","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–30","N3","3 × 30 m, 3 min palautus","Maksimi","–"],["30–85","11v11","Kulmat ja vapaat otetaan aina, kun ne syntyvät. 4 × 12 min, 2 min palautus","RPE 7–8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-05","wd":"Pe","title":"Aktivointi ja erikoistilanteet hyökkäys","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","5v5, 4 × 2 min, 2 min palautus","RPE 6","–"],["30–55","Rajaheitot ja kulmat","Pitkä rajaheitto 8 toistoa ja kulmat vastustajaa vastaan 10 toistoa","RPE 3–4","–"],["55–60","N5","4 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-08","wd":"Ma","title":"Testit ja erikoistilanteet puolustus","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–50","Testit","5, 10 ja 30 m (2 suoritusta, 3 min lepo) ja 8-rata (2 suoritusta, 2 min lepo). Samat olosuhteet kuin marraskuussa","Maksimi","–"],["50–85","Kulmat ja vapaat puolustus","Yhdistelmäpuolustus 15 kulmaa vastustajan varianteilla, laitavapaat 10 toistoa, muuri ja keskivapaat 6 toistoa. Pallon voiton jälkeen vastahyökkäys 3v2","RPE 4","Käsite: aluevastuu. Kysymys: kenen alue tämä oli?"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-11","wd":"To","title":"MAS-testi ja 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–45","MAS-testi","Seuran MAS-testi kahdessa erässä","Maksimi","–"],["45–50","Palautus","Kävely ja juominen","–","–"],["50–85","11v11","Ottelusimulaatio, erikoistilanteet mukana. 3 × 10 min, 2 min palautus","RPE 7–8","–"],["85–90","Jäähdyttely","Päivitä MAS-matkaryhmät uusilla tuloksilla","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-12","wd":"Pe","title":"Aktivointi ennen harjoitusottelua","notes":[],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","4v4, 4 × 2 min, 2 min palautus","RPE 5","–"],["30–55","Ottelun erikoistilanteet","Kaikki ottelussa käytettävät variantit, 2 toistoa kutakin","RPE 3","–"],["55–60","N5","3 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-15","wd":"Ma","title":"Korkea prässi","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–35","Vastaprässirondo 6v4","20 × 20 m, 4 pienmaalia, 6 s sääntö, 4 × 3 min, 2 min palautus","RPE 7","–"],["35–60","Maalipotkun prässi 10v8","Kaksi kolmannesta kentästä, 10 toistoa. Lisäksi vastustajan rakentelu 3 topparilla (vaihtoehtoinen muoto) 6 toistoa","RPE 7","Käsite: prässin sopeuttaminen. Kysymys: miten prässi muuttuu, jos vastustajalla on 3 topparia?"],["60–75","8v8 + MV × 2","1 × 10 min, prässisääntö 2 pistettä","RPE 7","–"],["75–85","SK","2 × 6 × 30 m, 20 s palautus, 4 min sarjapalautus","Maksimi, lyhyt lepo","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-18","wd":"To","title":"Korkea prässi 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–30","N4","3 × lentävä 20 m, 3 min","Maksimi","–"],["30–55","6v6 korkea lohko","Puolikas kenttä, 40 m leveä, 4 × 4 min, 2 min palautus","RPE 8","–"],["55–85","11v11","Ottelusimulaatio, 3 × 10 min, 2 min palautus","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-19","wd":"Pe","title":"Aktivointi ennen harjoitusottelua","notes":["Sama rakenne kuin 12.3.: 11+ osa 1 ja liikkuvuus (15 min), 5v5 4 × 2 min (2 min palautus), ottelun erikoistilanteet (25 min), N5 3 × 10 m (60 s)."],"rows":[["0–15","Lämmittely","11+ osa 1 ja liikkuvuus","Matala","–"],["15–30","Nopeat pelit","4v4, 4 × 2 min, 2 min palautus","RPE 5","–"],["30–55","Ottelun erikoistilanteet","Kaikki ottelussa käytettävät variantit, 2 toistoa kutakin","RPE 3","–"],["55–60","N5","3 × 10 m, 60 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"],"refd":"2027-03-12"},{"date":"2027-03-22","wd":"Ma","title":"Vastahyökkäys","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–35","Suuntarondo 4v4 + 3","25 × 20 m, 3 × 4 min","RPE 6","–"],["35–60","Prässi → vastahyökkäys 6v4 + 2","Puolikas kenttä, maali 10 s:ssa, 4 × 4 min, 2 min palautus","RPE 8","Kysymys: mikä oli vastahyökkäyksen nopein reitti maaliin?"],["60–75","8v8 + MV × 2","1 × 10 min, vastahyökkäysmaali = 2","RPE 7","–"],["75–85","SK","2 × 6 × 30 m, 20 s palautus, 4 min sarjapalautus","Maksimi, lyhyt lepo","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-25","wd":"To","title":"Vastahyökkäys 11v11 (viikon viimeinen harjoitus)","notes":["Pitkäperjantai 26.3. ja 2. pääsiäispäivä ma 29.3. ovat vapaita. Tiistain sali 30.3. pidetään normaalisti."],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–30","N3","3 × 30 m, 3 min","Maksimi","–"],["30–50","Aaltohyökkäys 4v3 → 3v2","Koko kenttä, 3 aaltoa × 4 min, 2 min palautus","RPE 8","–"],["50–80","11v11","3 × 10 min, 2 min palautus","RPE 7–8","–"],["80–90","Erikoistilanteet ja jäähdyttely","6 kulmaa hyökkäys ja 6 puolustus, venyttely","RPE 3","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-03-29","wd":"Ma","title":"2. pääsiäispäivä: ei kenttäharjoitusta","notes":["Alla oleva harjoitus jää pois, koska maanantai on pyhäpäivä. Jos kenttävuoro järjestyy toiselle päivälle, se pidetään sellaisenaan. Muuten joukkuekohtaisten pelisuunnitelmien aloitus siirtyy torstain 1.4. 11v11-harjoitukseen."],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–35","Rondot","7v3, 3 × 4 min","RPE 5","–"],["35–60","Joukkuekohtainen harjoite","Edustus puolikkaalla kentällä: rakentelu ja prässi kakkosen vastustajia vastaan (valmentaja 1 ja 2). N2 toisella puolikkaalla: kolmosen pelisuunnitelma (valmentaja 3). Kumpikin 9v9 + MV, 3 × 7 min, 2 min palautus","RPE 7","Kysymys: mikä on meidän joukkueemme suurin vahvuus kauden alussa?"],["60–75","8v8 + MV × 2","Joukkueet erikseen, 1 × 12 min","RPE 7","–"],["75–85","N4","3 × lentävä 20 m, 3 min (huippunopeus korvaa SK:n)","Maksimi","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-01","wd":"To","title":"Pelisuunnitelmat 11v11","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–30","N1 + N3","4 × 10 m (60 s) ja 2 × 30 m (3 min)","Maksimi","–"],["30–85","11v11","Edustus vastaan N2 + täydennykset. Kumpikin joukkue pelaa omalla pelisuunnitelmallaan. 4 × 12 min, 2 min palautus","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-02","wd":"Pe","title":"Aktivointi ennen harjoitusottelua","notes":["11+ osa 1 ja liikkuvuus (15 min), 4v4 4 × 2 min (2 min palautus), ottelun erikoistilanteet joukkueittain (25 min), N5 3 × 10 m (60 s)."],"rows":[],"cols":null},{"date":"2027-04-05","wd":"Ma","title":"Pelisuunnitelmat: puolustaminen","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–35","Vastaprässirondo 6v4","20 × 20 m, 4 × 3 min, 2 min palautus","RPE 7","–"],["35–60","Joukkuekohtainen harjoite","Edustus: korkea prässi ja keskilohko, kun prässi murtuu (9v9 + MV, 3 × 7 min). N2: keskilohko ja vastahyökkäys (9v9 + MV, 3 × 7 min). 2 min palautus","RPE 7","Kysymys: milloin siirrymme korkeasta prässistä keskilohkoon?"],["60–75","8v8 + MV × 2","Joukkueet erikseen, 1 × 12 min","RPE 7","–"],["75–85","N4","3 × lentävä 20 m, 3 min","Maksimi","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-08","wd":"To","title":"Ottelusimulaatio","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–30","N2","4 × 20 m, 90 s","Maksimi","–"],["30–85","11v11","Ottelusimulaatio 2 × 25 min, 5 min tauko. Erotuomari, vaihdot kuten ottelussa","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-09","wd":"Pe","title":"Aktivointi ennen harjoitusottelua","notes":["11+ osa 1 ja liikkuvuus (15 min), 5v5 4 × 2 min (2 min palautus), ottelun erikoistilanteet joukkueittain (25 min), N5 3 × 10 m (60 s)."],"rows":[],"cols":null},{"date":"2027-04-12","wd":"Ma","title":"Viimeinen kova viikko: prässi ja vastahyökkäys","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–35","Rondot","7v3 ja 3 s vastaprässi, 3 × 4 min","RPE 6","–"],["35–60","Prässi → vastahyökkäys 6v4 + 2","Puolikas kenttä, 4 × 4 min, 2 min palautus","RPE 8","–"],["60–75","8v8 + MV × 2","Joukkueet erikseen, 1 × 12 min","RPE 7","–"],["75–85","RSA","2 × 6 × 20 m, 20 s palautus, 4 min sarjapalautus","Maksimi, lyhyt lepo","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-15","wd":"To","title":"Ottelusimulaatio","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–30","N3","3 × 30 m, 3 min","Maksimi","–"],["30–85","11v11","Ottelusimulaatio 2 × 25 min, 5 min tauko","RPE 8","–"],["85–90","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-16","wd":"Pe","title":"Aktivointi ennen harjoitusottelua","notes":["11+ osa 1 ja liikkuvuus (15 min), 4v4 4 × 2 min (2 min palautus), erikoistilanteet (25 min), N5 3 × 10 m (60 s)."],"rows":[],"cols":null},{"date":"2027-04-19","wd":"Ma","title":"Keventäminen: tekniikka ja teema","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–35","Rondot","7v3, 3 × 3 min","RPE 5","–"],["35–55","Joukkuekohtainen harjoite","9v9 + MV joukkueittain, 2 × 7 min, 2 min palautus","RPE 6–7","–"],["55–65","N4","2 × lentävä 20 m, 3 min","Maksimi","–"],["65–75","Jäähdyttely","Lyhennetty harjoitus, 75 min","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-22","wd":"To","title":"Keventäminen: lyhyt ottelusimulaatio","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–28","N2","3 × 20 m, 90 s","Maksimi","–"],["28–68","11v11","2 × 18 min, 4 min tauko","RPE 7","–"],["68–75","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-23","wd":"Pe","title":"Aktivointi","notes":["11+ osa 1 ja liikkuvuus (15 min), 4v4 3 × 2 min (2 min palautus), erikoistilanteet (20 min), N5 3 × 10 m (60 s). Yhteensä 50 min."],"rows":[],"cols":null},{"date":"2027-04-26","wd":"Ma","title":"Ottelua edeltävä viikko: MD-5","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–35","Rondot","7v3 ja 3 s vastaprässi, 3 × 4 min","RPE 6","–"],["35–60","Vastustajakohtainen harjoite","Edustus ja N2 erikseen: ensimmäisen vastustajan rakentelu ja oma prässi, 9v9 + MV, 3 × 7 min","RPE 7","Kysymys: mistä vastustajan rakentelu alkaa?"],["60–80","8v8 + MV × 2","2 × 8 min, 2 min palautus","RPE 7","–"],["80–90","N2 ja jäähdyttely","3 × 20 m, 90 s","Maksimi","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-29","wd":"To","title":"MD-2: lyhyt ja terävä","notes":[],"rows":[["0–20","FIFA 11+ taso 3","Osat 1–3","Keski","–"],["20–28","N1","4 × 10 m, 60 s","Maksimi","–"],["28–58","11v11","Avauskokoonpanot vastakkain, 2 × 12 min, 3 min tauko","RPE 6–7","–"],["58–70","Erikoistilanteet","Ottelun variantit, 2 toistoa kutakin","RPE 3","–"],["70–75","Jäähdyttely","–","–","–"]],"cols":["Aika","Harjoite","Järjestely ja säännöt","Kuorma","Käsite ja kysymys"]},{"date":"2027-04-30","wd":"Pe","title":"MD-1: aktivointi","notes":["11+ osa 1 (10 min), 5v2-rondot (3 × 2 min), erikoistilanteiden läpikäynti kävellen (15 min), N5 3 × 10 m (60 s). Yhteensä 45 min. Vappu on 1.5., joten ottelupäivä tarkistetaan sarjaohjelmasta."],"rows":[],"cols":null}],"n":{"Viikko 44: N2 futsal, kertaus ja perusteet":["Viikolla 44 N2 harjoittelee futsalhallissa ennen marraskuun kenttäkautta. Harjoituksia on kaksi, kumpikin 60 minuuttia, ja paikalla on noin 12–16 kenttäpelaajaa ja 2 maalivahtia. Maanantaina kerrataan perusteet ja perjantaina puolustaminen ja erikoistilanteet. Pallona on futsalpallo (koko 4)."],"Viikot 45–48: Naiset 2 ja try out":["Marraskuussa harjoittelee Naiset 2 (25 pelaajaa). Try outiin osallistuvat ulkopuoliset pelaajat harjoittelevat N2:n maanantai- ja perjantaiharjoituksissa, joten kentällä on noin 25–35 pelaajaa ja kolme valmentajaa. Edustus aloittaa ma 30.11. Torstaisin 5.11.–10.12. N2:lla on Hyrox oman vetäjän johdolla, ja tiistaisin sali. Fyysiset testit tehdään molemmille joukkueille joulukuun alussa. Esikarsinta ulkopuolisille kerrotaan viikon 46 lopussa, ja lopullinen karsinta pe 4.12.","Lukioiden koeviikko 19.–27.11. osuu viikoille 47–48, joten lukiolaisten osallistuminen on silloin vapaaehtoista."],"Viikot 49–50: koko ryhmä yhdessä":["Edustus aloittaa ma 30.11., ja edustus ja N2 harjoittelevat tästä alkaen yhdessä noin 40 pelaajan ryhmänä. Viikko 49 on try outin viimeinen arviointiviikko, ja lopulliset päätökset kerrotaan pe 4.12. harjoituksen jälkeen henkilökohtaisesti. Molemmat joukkueet testataan: sprintit ja 8-rata ma 30.11. ja MAS-testi pe 4.12. Ykkösen pelaajat pelaavat la 5.12., joten he tekevät MAS-testin ma 7.12. Torstaina 3.12. ja 10.12. molemmat joukkueet tekevät Hyroxin. 11+ siirtyy tasolle 2, ja MAS1-juoksut alkavat ma 7.12."],"Viikot 4–5: prässi ja vastahyökkäys":["Lukioiden koeviikko 1.–9.2. osuu viikoille 5–6, joten lukiolaisten osallistuminen on silloin vapaaehtoista. Kirjaa poissaolot, jotta MAS3-juoksujen eteneminen voidaan sovittaa pelaajakohtaisesti."],"Viikot 10–11: erikoistilanteet ja korkea prässi":["Futsal on ohi, ja lauantaisin pelataan harjoitusottelu. Torstai pysyy viikon kovimpana harjoituksena. Viikolla 10 tehdään testit, ja viikosta 11 alkaen maanantain MAS-paikalla tehdään nopeuskestävyyttä (SK)."],"Viikot 12–13: vastahyökkäys ja joukkuekohtaiset pelisuunnitelmat":["Ylioppilaskirjoitukset 16.3.–2.4. osuvat viikoille 11–13, eli ne alkavat jo viikon 11 tiistaina. Abi voi jättää harjoituksen väliin omana koepäivänään ja sitä edeltävänä päivänä. Harjoituspäivistä tämä voi koskea kenttäharjoituksia ma 15.3., to 18.3., pe 19.3., ma 22.3. ja to 1.4. sekä tiistain salia 16.3., 23.3. ja 30.3. Kokoa abien omat koepäivät listaksi ennen viikkoa 11, ja suunnittele kokoonpanot ja harjoituspelien joukkueet niiden mukaan."],"Viikot 14–15: pelisuunnitelmat ja valmistautuminen sarjaan":["Ylioppilaskirjoitusten viimeinen koepäivä on pe 2.4., ja lukioiden koeviikko 5.–13.4. osuu viikoille 14–15. Lukiolaisten osallistuminen on vapaaehtoista, joten torstain ottelusimulaatioissa joukkueet kootaan paikalla olevista."],"Viikot 16–17: keventäminen ja sarjan alku":["Viikolla 16 harjoitusmäärää vähennetään noin 30–40 %, mutta teho säilyy: pelit ja sprintit ovat yhtä kovia, mutta niitä on vähemmän. Viikko 17 rakennetaan sarjan ensimmäisen ottelun mukaan. Tarkka alkamispäivä on vielä auki, joten alla oletetaan ottelu viikonloppuna 1.–2.5."]}}</script>
+<script>(window.__boot||Promise.resolve()).then(function(){
+(function(){
+const D=JSON.parse(document.getElementById("seasonData").textContent);
+const $=id=>document.getElementById(id);
+const WDN=["Su","Ma","Ti","Ke","To","Pe","La"];
+const LT={kova:["Kova","--kova"],keski:["Keskitaso","--keski"],kevyt:["Kevyt","--kevyt"],sali:["Sali","--sali"],peli:["Peli","--peli"],lepo:["Vapaa","--lepo"]};
+function pd(s){const [y,m,d]=s.split("-").map(Number);return new Date(Date.UTC(y,m-1,d));}
+function fd(dt){return dt.getUTCFullYear()+"-"+String(dt.getUTCMonth()+1).padStart(2,"0")+"-"+String(dt.getUTCDate()).padStart(2,"0");}
+function add(s,n){const d=pd(s);d.setUTCDate(d.getUTCDate()+n);return fd(d);}
+function short(s){const d=pd(s);return d.getUTCDate()+"."+(d.getUTCMonth()+1)+".";}
+function wdOf(s){return WDN[pd(s).getUTCDay()];}
+function isoWeek(s){const d=pd(s);const day=(d.getUTCDay()+6)%7;d.setUTCDate(d.getUTCDate()-day+3);const f=new Date(Date.UTC(d.getUTCFullYear(),0,4));return 1+Math.round(((d-f)/864e5-3+((f.getUTCDay()+6)%7))/7);}
+function todayStr(){try{return new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Helsinki"}).format(new Date());}catch(e){return fd(new Date());}}
+
+const THEME={44:"N2 futsal: kertaus ja perusteet",45:"N2 ja try out: pelikäsitys ja 1v1",46:"N2 ja try out: prässin perusteet",47:"N2 ja try out: vastahyökkäys",48:"N2 ja try out: koko pelitapa",49:"Edustus mukaan: testit ja pelitavan esittely",50:"Korkea prässi: laukaisijat",51:"Vastaprässi ja 5 sekunnin sääntö",52:"Joulutauko",53:"Joulutauko",1:"Paluu: pienpelit ja rondot",2:"Vastahyökkäys: ensimmäinen syöttö eteen",3:"Vastahyökkäys: leveys ja syvyys",4:"Prässi ja vastahyökkäys yhdessä",5:"Korkea prässi: koko joukkue",6:"Prässin murtautumisen estäminen",7:"Vastahyökkäys: viimeistely",8:"Pelitapa 11v11",9:"Erikoistilanteet: hyökkäys",10:"Erikoistilanteet: puolustus",11:"Korkea prässi",12:"Vastahyökkäys",13:"Joukkuekohtaiset pelisuunnitelmat",14:"Joukkuekohtaiset pelisuunnitelmat",15:"Ottelukauteen valmistautuminen",16:"Keventäminen",17:"Sarjan alku"};
+const GAMES=[
+ ["2026-11-01","Futsal ykkönen: TPV – RaiFu 2, 16.30"],["2026-11-08","Futsal ykkönen: EBK – TPV, 17.00"],["2026-11-14","Futsal ykkönen: FC Kiffen – TPV, 16.00"],
+ ["2026-11-21","Futsal ykkönen: TPV – TiPS, 20.00"],["2026-11-21","Futsal kolmonen (N2): PJK – TPV/2 16.15, TPV/2 – Mad Max/3 17.25"],
+ ["2026-12-05","Futsal ykkönen: Pato – TPV, 13.00"],["2026-12-12","Futsal ykkönen: TuTo – TPV, 12.00"],
+ ["2026-12-19","Futsal ykkönen: TPV – Pato, 16.30"],["2026-12-19","Futsal kolmonen (N2): TPV/2 – ACE 15.40, Ilves/3 – TPV/2 18.00"],
+ ["2027-01-06","Futsal ykkönen: PP-70 – TPV, 16.30"],["2027-01-09","Futsal ykkönen: TPV – EBK, 20.00"],["2027-01-09","Futsal kolmonen (N2): Tampere United – TPV/2 11.15, TPV/2 – TamFu 13.45"],
+ ["2027-01-16","Futsal ykkönen: PPJ – TPV, 13.00"],["2027-01-23","Futsal ykkönen: RaiFu 2 – TPV, 15.00"],["2027-01-30","Futsal ykkönen: TPV – FC Kiffen, 20.00"],
+ ["2027-01-31","Futsal kolmonen (N2): TPV/2 – Tuisku 12.15, LLuja – TPV/2 13.30"],["2027-02-06","Futsal ykkönen: TPV – MU, 16.30"],
+ ["2027-02-13","Futsal kolmonen (N2): Ylöjärven Ilves – TPV/2 11.15, TPV/2 – MaTo 13.45"],["2027-02-14","Futsal ykkönen: TiPS – TPV, 14.00"],
+ ["2027-02-20","Futsal ykkönen: TPV – TuTo, 16.30"],["2027-02-20","Futsal kolmonen (N2): Loiske – TPV/2, 13.45"],["2027-02-27","Futsal ykkönen: PK-09 – TPV, 16.30"]
+];
+const GYM_NOTE={"2027-02-02":"N2 pelasi turnauksen sunnuntaina: kevennetty sali N2:lle.","2027-02-16":"Ykkösen pelaajat pelasivat sunnuntaina: kevennetty sali."};
+const GYM_FULL=[["","Alaraajojen perusvoima","Kyykky, askelkyykky, maastaveto ja hip thrust – tekniikka ennen kuormaa"],["","Takareidet","Nordic hamstring 1–2 sarjaa, nousujohteisesti"],["","Hypyt ja alastulot","Polvet linjassa, ei polven sisäänkiertoa"],["","Keskivartalo ja nilkat","Lantion hallinta, tasapaino- ja hyppelyharjoitteet"]];
+const GYM_LIGHT=[["","Ylävartalo ja keskivartalo","Ei raskaita jalkaliikkeitä eikä hyppyjä"],["","Liikkuvuus ja kehonhuolto",""]];
+const GYM_MD4=[["","Alaraajat ylläpitävästi","2–3 sarjaa, kuorma ennallaan mutta toistoja vähemmän"],["","Takareidet","Nordic hamstring 1 sarja"],["","Keskivartalo ja nilkat",""]];
+const GCOLS=["","Osio","Sisältö"];
+
+function loadOf(s){
+  if(s.break) return "lepo";
+  if(/ei kenttäharjoitusta/.test(s.title)) return "lepo";
+  if(/Hyrox/.test(s.title)) return "kova";
+  if(s.wd==="To") return /Keskitasoinen|Keventäminen|MD-2/.test(s.title)?"keski":"kova";
+  if(s.wd==="Pe") return s.date<"2026-12-01"?"keski":"kevyt";
+  return "keski";
+}
+// build entries
+const E=[];
+D.s.forEach(s=>{if(s.wd==="Ti"){E.push({date:s.date,kind:"gym",load:"sali",title:s.title,notes:s.notes,cols:s.cols,rows:s.rows,sub:s.date<"2026-11-30"?"Oma salivalmentaja · N2":"Oma salivalmentaja"});return;}E.push({date:s.date,kind:s.break?"break":"pitch",load:loadOf(s),title:s.title,notes:s.notes,cols:s.cols,rows:s.rows,refd:s.refd,sub:s.break?"Omatoiminen ohjelma":s.date<"2026-11-02"?"60 min · N2 · futsalhalli":/Hyrox/.test(s.title)?"Hyrox · oma vetäjä":(s.wd==="To"||s.wd==="Ma")?(s.date<"2026-11-30"?"90 min · N2 + try out · MV-valmentaja":"90 min · MV-valmentaja"):(s.date<"2026-11-30"?(s.date==="2026-11-20"?"75 min · N2 + try out":"90 min · N2 + try out"):"60 min")});});
+const mondays=[];for(let d="2026-10-26";d<="2027-04-26";d=add(d,7)) mondays.push(d);
+mondays.forEach(m=>{const t=add(m,1);if(t<"2026-11-03")return;if(D.s.some(s=>s.date===t))return;if(t>="2026-12-21"&&t<="2027-01-03")return;
+  let rows=GYM_FULL,title="Sali: täysi voimaharjoitus",load="sali",notes=[];
+  if(t==="2027-04-20"){rows=GYM_LIGHT;title="Sali: kevennetty (keventämisviikko)";}
+  if(t==="2027-04-27"){rows=GYM_MD4;title="Sali: voima ylläpitävästi (MD-4)";}
+  if(GYM_NOTE[t]) notes=[GYM_NOTE[t]];
+  E.push({date:t,kind:"gym",load,title,notes,cols:GCOLS,rows,sub:t<"2026-11-30"?"Oma salivalmentaja · N2":"Oma salivalmentaja"});});
+GAMES.forEach(g=>E.push({date:g[0],kind:"game",load:"peli",title:g[1],notes:[],rows:[],sub:"Futsal"}));
+let JOPOX={"t":{"2026-11-02":"klo 20.15–21.45","2026-11-03":"klo 19.45–21.00","2026-11-05":"klo 19.45–21.00","2026-11-06":"klo 19.00–20.30","2026-11-09":"klo 19.00–20.30","2026-11-10":"klo 19.45–21.00","2026-11-11":"klo 19.00–20.30","2026-11-12":"klo 19.45–21.00","2026-11-16":"klo 19.00–20.30","2026-11-17":"klo 19.45–21.00","2026-11-19":"klo 19.45–21.00","2026-11-23":"klo 20.00–21.15","2026-11-24":"klo 19.45–21.00","2026-11-26":"klo 19.45–21.00","2026-12-01":"klo 19.45–21.00","2026-12-03":"klo 19.45–21.00","2026-12-08":"klo 19.45–21.00","2026-12-10":"klo 19.45–21.00","2026-12-15":"klo 19.45–21.00","2026-12-22":"klo 19.45–21.00","2026-12-29":"klo 19.45–21.00","2027-01-05":"klo 19.45–21.00","2027-01-12":"klo 19.45–21.00","2027-01-19":"klo 19.45–21.00","2027-01-26":"klo 19.45–21.00","2027-02-02":"klo 19.45–21.00","2027-02-09":"klo 19.45–21.00","2027-02-16":"klo 19.45–21.00","2027-02-23":"klo 19.45–21.00","2027-03-02":"klo 19.45–21.00","2027-03-09":"klo 19.45–21.00","2027-03-16":"klo 19.45–21.00","2027-03-23":"klo 19.45–21.00","2027-03-30":"klo 19.45–21.00"},"upd":"7.11.2026"};/*JOPOX*/try{document.getElementById("jopoxUpd").textContent=JOPOX.upd}catch(err){}
+try{const L=window.__JOPOX_LIVE;if(L&&L.t&&Object.keys(L.t).length)JOPOX={t:L.t,upd:L.upd||JOPOX.upd};}catch(err){}
+Object.keys(JOPOX.t).forEach(d=>{if(!E.some(e=>e.date===d&&e.kind!=="game"))E.push({date:d,kind:"pitch",load:"keski",title:"Lisävuoro Jopoxissa",notes:["Vuoro on Jopoxissa, mutta harjoitussuunnitelmassa ei ole tälle päivälle sisältöä."],rows:[],sub:""});});
+E.forEach(e=>{if(e.kind==="game"||e.kind==="break")return;const t=JOPOX.t[e.date];e.sub=(t||"aika ei vielä Jopoxissa")+(e.sub?" · "+e.sub:"");});
+E.sort((a,b)=>a.date<b.date?-1:a.date>b.date?1:({gym:1,pitch:0,break:0,game:2}[a.kind]-{gym:1,pitch:0,break:0,game:2}[b.kind]));
+E.forEach((e,i)=>e.id="e"+i);
+
+const T=todayStr();
+const trainable=E.filter(e=>e.kind==="pitch"&&e.load!=="lepo"||e.kind==="gym");
+const inBreak=T>="2026-12-21"&&T<="2027-01-03";
+let next=inBreak?E.find(e=>e.kind==="break"):(trainable.find(e=>e.date>=T)||null);
+const seasonOver=!next;
+if(!next) next=trainable[trainable.length-1];
+
+function rel(d){const diff=Math.round((pd(d)-pd(T))/864e5);if(diff===0)return"tänään";if(diff===1)return"huomenna";if(diff>1)return diff+" päivän päästä";return"";}
+function rowsHTML(e){
+  if(!e.rows||!e.rows.length) return "";
+  const c=e.cols||[];
+  return `<div class="drills">${e.rows.map(r=>{
+    const time=r[0]?`<span class="dt">${r[0]}${/^\d+[–-]\d+$/.test(r[0])?" min":""}</span>`:`<span class="dt"></span>`;
+    const extra=r.slice(2).map((v,i)=>{if(!v||v==="–")return"";const lab=/^(Käsite|Kysymys|Kertaus)/.test(v)?"":(c[i+2]||"");return `<div class="dx">${lab?`<span class="dl">${lab}</span> `:""}${v}</div>`;}).join("");
+    return `<div class="drill">${time}<div class="db"><strong>${r[1]||""}</strong>${extra}</div></div>`;}).join("")}</div>`;
+}
+const RPE_BASE="https://docs.google.com/forms/d/e/1FAIpQLSfYXN0LW7vfxxDLB0ozBpytSbNLeQn5F8Et28vRK_R2865lJg/viewform";
+function rpeKind(e){if(e.kind==="break"||e.load==="lepo")return null;if(e.kind==="game")return"Futsal-peli";if(/Hyrox/.test(e.title))return"Hyrox";if(e.kind==="gym")return"Sali";if(e.kind==="pitch")return"Kenttäharjoitus";return null;}
+function rpeMin(e){if(e.kind==="game")return"";const t=JOPOX.t[e.date];if(t){const m=t.match(/(\d+)\.(\d+)–(\d+)\.(\d+)/);if(m)return(+m[3]*60+ +m[4])-(+m[1]*60+ +m[2]);}const s=(e.sub||"").match(/(\d+) min/);return s?+s[1]:"";}
+function rpeUrl(e){const k=rpeKind(e),m=rpeMin(e);return RPE_BASE+"?usp=pp_url&entry.93475025="+e.date+"&entry.1191694660="+encodeURIComponent(k)+(m?"&entry.1684132284="+m:"");}
+function rpeBtn(e){if(!rpeKind(e)||e.date>T||e.date<add(T,-3))return"";return `<div class="rpewrap"><a class="rpe" href="#rpe-${e.date}">Anna RPE</a><small>${e.date===T?"Vastaa 15–30 min harjoituksen jälkeen. ":""}Kaksi napautusta: rasitus ja pelinumero.</small></div>`;}
+function bodyHTML(e){
+  let h=rpeBtn(e);
+  if(e.refd) h+=`<p class="ref">Sama ohjelma kuin ${wdOf(e.refd).toLowerCase()} ${short(e.refd)}</p>`;
+  h+=(e.notes||[]).map(n=>`<p>${n}</p>`).join("");
+  h+=rowsHTML(e);
+  return h||`<p>Ei harjoitusta.</p>`;
+}
+function stripe(e){const l=LT[e.load];return `<span class="stripe" style="background:var(${l[1]})">${wdOf(e.date)}<small>${short(e.date)}</small></span>`;}
+
+function prevBar(cur){const lo=add(T,-3);const p=E.filter(x=>x.date<T&&x.date>=lo&&rpeKind(x)&&x.id!==cur.id).pop();if(!p)return"";return `<div class="rpebar"><span>Edellinen: ${wdOf(p.date)} ${short(p.date)} – ${p.title}</span><a class="rpe" href="#rpe-${p.date}">Anna RPE</a></div>`;}
+function renderNext(){
+  const e=next,l=LT[e.load];
+  const lbl=seasonOver?"Kauden viimeinen harjoitus":(e.kind==="break"?"Nyt menossa":"Seuraava harjoitus");
+  $("nextCard").innerHTML=`${prevBar(e)}
+    <div class="nhead" style="border-color:var(${l[1]})">
+      <div class="label">${lbl}${!seasonOver&&e.kind!=="break"&&rel(e.date)?" · "+rel(e.date):""}</div>
+      <h2>${e.kind==="break"?e.title:`${wdOf(e.date)} ${short(e.date)} – ${e.title}`}</h2>
+      <div class="nmeta"><span class="pill" style="color:var(${l[1]})">${l[0]}</span><span>${e.sub||""}</span><span>Vk ${isoWeek(e.date)} · ${THEME[isoWeek(e.date)]||""}</span></div>
+    </div>
+    <div class="nbody">${bodyHTML(e)}</div>
+    <button class="linkbtn" id="toWeek" type="button">Näytä koko viikko</button>`;
+  $("toWeek").onclick=()=>{wk=mondays.indexOf(mondayOf(e.date));if(wk<0)wk=0;openId=e.id;renderWeek();$("season").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});};
+}
+function mondayOf(d){const day=(pd(d).getUTCDay()+6)%7;return add(d,-day);}
+let wk=Math.max(0,mondays.indexOf(mondayOf(next.date)));
+let openId=null;
+try{const h=location.hash.match(/^#vk(\d+)$/);if(h){const i=mondays.findIndex(m=>isoWeek(m)===+h[1]);if(i>=0){wk=i;openId=null;}}}catch(err){}
+function secNote(m){
+  const w=isoWeek(m);
+  const map={44:"Viikko 44: N2 futsal, kertaus ja perusteet",45:"Viikot 45–48: Naiset 2 ja try out",46:"Viikot 45–48: Naiset 2 ja try out",47:"Viikot 45–48: Naiset 2 ja try out",48:"Viikot 45–48: Naiset 2 ja try out",49:"Viikot 49–50: koko ryhmä yhdessä",4:"Viikot 4–5: prässi ja vastahyökkäys",10:"Viikot 10–11: erikoistilanteet ja korkea prässi",12:"Viikot 12–13: vastahyökkäys ja joukkuekohtaiset pelisuunnitelmat",14:"Viikot 14–15: pelisuunnitelmat ja valmistautuminen sarjaan",16:"Viikot 16–17: keventäminen ja sarjan alku"};
+  const k=map[w]||(w>=49||w<=17?map[w-1]:null);return k&&D.n[k]?D.n[k]:[];
+}
+function renderWeek(){
+  const m=mondays[wk],sun=add(m,6),w=isoWeek(m);
+  $("wkLabel").innerHTML=`Vk ${w}<small>${short(m)}–${short(sun)}</small>`;
+  $("wkTheme").textContent=THEME[w]||"";
+  $("prevWk").disabled=wk===0;$("nextWk").disabled=wk===mondays.length-1;
+  const notes=secNote(m);
+  $("wkNotes").innerHTML=notes.map(n=>`<p>${n}</p>`).join("");
+  $("wkNotes").hidden=!notes.length;
+  let items=E.filter(e=>e.date>=m&&e.date<=sun);
+  if(!items.length){const b=E.find(e=>e.kind==="break");if(m>="2026-12-21"&&m<="2027-01-03")items=[b];}
+  $("wkList").innerHTML="";
+  items.forEach(e=>{
+    const l=LT[e.load];
+    const el=document.createElement("div");el.className="day"+(e.id===next.id?" isnext":"");
+    const btn=document.createElement("button");btn.type="button";btn.setAttribute("aria-expanded",openId===e.id);
+    btn.innerHTML=`${stripe(e)}<span class="title"><strong>${e.title}</strong><span>${e.sub||""}${e.id===next.id?" · seuraava":""}</span></span><span class="pill" style="color:var(${l[1]})">${l[0]}</span>`;
+    btn.onclick=()=>{openId=openId===e.id?null:e.id;renderWeek();};
+    el.appendChild(btn);
+    if(openId===e.id&&(e.rows.length||e.notes.length||e.refd||rpeBtn(e))){const det=document.createElement("div");det.className="detail";det.innerHTML=bodyHTML(e);el.appendChild(det);}
+    $("wkList").appendChild(el);
+  });
+}
+$("prevWk").onclick=()=>{if(wk>0){wk--;openId=null;renderWeek();}};
+$("nextWk").onclick=()=>{if(wk<mondays.length-1){wk++;openId=null;renderWeek();}};
+$("thisWk").onclick=()=>{wk=Math.max(0,mondays.indexOf(mondayOf(next.date)));openId=null;renderWeek();};
+
+// ---- RPE view ----
+const FORM="https://docs.google.com/forms/d/e/1FAIpQLSfYXN0LW7vfxxDLB0ozBpytSbNLeQn5F8Et28vRK_R2865lJg/formResponse";
+const F={team:"2053152217",nr:"910243003",date:"93475025",kind:"1191694660",min:"1684132284",rpe:"1883173568",comment:"442353442"};
+const ROSTER={Edustus:null,N2:null}; // aktiiviset numerot, esim. [1,4,7]; null = 1–99
+const CR10=[[0,"Lepo","--lepo"],[1,"Erittäin kevyt","--kevyt"],[2,"Kevyt","--kevyt"],[3,"Kohtalainen","--kevyt"],[4,"Melko rankka","--keski"],[5,"Rankka","--keski"],[6,"Rankka+","--keski"],[7,"Erittäin rankka","--kova"],[8,"Erittäin rankka+","--kova"],[9,"Lähes maksimaalinen","--kova"],[10,"Maksimaalinen","--kova"]];
+const LS=k=>{try{return JSON.parse(localStorage.getItem("tpv_rpe_"+k)||"null");}catch(err){return null;}};
+const LSset=(k,v)=>{try{localStorage.setItem("tpv_rpe_"+k,JSON.stringify(v));}catch(err){}};
+const RV={sess:null,rpe:null,team:LS("team"),nr:LS("nr"),min:null,comment:"",sent:false};
+function rvSessions(){const lo=add(T,-3);return E.filter(x=>x.date<=T&&x.date>=lo&&rpeKind(x));}
+function rvKey(e){return e.date+"|"+e.kind+"|"+e.title;}
+function rvUrl(){const e=RV.sess;const m=e.kind==="game"?RV.min:rpeMin(e);
+  const q={[F.team]:RV.team,[F.nr]:RV.nr,[F.date]:e.date,[F.kind]:rpeKind(e),[F.min]:m,[F.rpe]:RV.rpe};
+  if(RV.comment.trim())q[F.comment]=RV.comment.trim();
+  return FORM+"?"+Object.entries(q).map(([k,v])=>"entry."+k+"="+encodeURIComponent(v)).join("&")+"&submit=Submit";}
+function rvParams(){const e=RV.sess;const m=e.kind==="game"?RV.min:rpeMin(e);const q={[F.team]:RV.team,[F.nr]:RV.nr,[F.date]:e.date,[F.kind]:rpeKind(e),[F.min]:m,[F.rpe]:RV.rpe};if(RV.comment.trim())q[F.comment]=RV.comment.trim();const o={};Object.entries(q).forEach(([k2,v2])=>o["entry."+k2]=String(v2));return o;}
+function rvPost(o){return fetch(FORM,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(o).toString()});}
+function rvQueue(o){const qq=LS("queue")||[];qq.push(o);LSset("queue",qq.slice(-30));}
+function rvFlush(){const qq=LS("queue")||[];if(!qq.length||!navigator.onLine)return;LSset("queue",[]);qq.forEach(o=>rvPost(o).catch(()=>rvQueue(o)));}
+if(window.SITE_MODE){window.addEventListener("online",rvFlush);setTimeout(rvFlush,1500);}
+function rvReady(){return RV.sess&&RV.rpe!=null&&RV.team&&RV.nr&&(RV.sess.kind!=="game"||RV.min);}
+function renderRpe(){
+  const v=$("rpeView");const ss=rvSessions();
+  if(!RV.sess||!ss.includes(RV.sess))RV.sess=ss[ss.length-1]||null;
+  if(!ss.length){v.innerHTML=`<div class="rv-card"><h2 class="rv-h" id="rvTitle">Anna RPE</h2><p class="rv-sum">Viimeisen kolmen päivän aikana ei ole ollut harjoitusta tai peliä, josta RPE kysytään.</p><button class="rv-back" type="button" id="rvBack">‹ Viikkorytmiin</button></div>`;$("rvBack").onclick=()=>{location.hash="";};return;}
+  const e=RV.sess;const sentBefore=(LS("sent")||[]).includes(rvKey(e)+"|"+RV.team+"|"+RV.nr);
+  if(RV.sent){v.innerHTML=`<div class="rv-card rv-done"><h2 class="rv-h" id="rvTitle">Kiitos!</h2><p class="rv-sum">RPE ${RV.rpe} lähetetty: ${wdOf(e.date)} ${short(e.date)} – ${e.title}, ${RV.team} #${RV.nr}. ${RV.sent==="queued"?"Puhelin on ilman verkkoa: vastaus lähtee automaattisesti, kun yhteys palaa ja avaat sivun.":RV.sent==="ok"?"Vastaus on tallennettu.":"Google avasi kuittaussivun uuteen välilehteen, voit sulkea sen."}</p><button class="rv-back" type="button" id="rvAgain">Anna RPE toisesta harjoituksesta</button><button class="rv-back" type="button" id="rvBack">‹ Viikkorytmiin</button></div>`;
+    $("rvAgain").onclick=()=>{RV.sent=false;RV.rpe=null;RV.comment="";RV.min=null;renderRpe();};$("rvBack").onclick=()=>{location.hash="";};return;}
+  const nums=(ROSTER[RV.team]||Array.from({length:99},(_,i)=>i+1));
+  v.innerHTML=`<div class="rv-card">
+    <h2 class="rv-h" id="rvTitle">Anna RPE</h2>
+    ${ss.length>1?`<div class="rv-sess" role="group" aria-label="Harjoitus">${ss.map((x,i)=>`<button type="button" id="rvS${i}" data-i="${i}" aria-pressed="${x===e}">${wdOf(x.date)} ${short(x.date)} · ${x.kind==="game"?"Peli":x.kind==="gym"?"Sali":/Hyrox/.test(x.title)?"Hyrox":"Kenttä"}</button>`).join("")}</div>`:""}
+    <p class="rv-sum"><strong>${wdOf(e.date)} ${short(e.date)} – ${e.title}</strong><br>${e.sub||""}</p>
+  </div>
+  <div class="rv-card"><div class="rv-step">1 · Kuinka rankka harjoitus oli kokonaisuutena?</div>
+    <div class="rv-scale" role="group" aria-label="RPE">${CR10.map(([n,l,c])=>`<button type="button" id="rvR${n}" data-r="${n}" aria-pressed="${RV.rpe===n}"><b style="background:var(${c})">${n}</b><span>${l}</span></button>`).join("")}</div></div>
+  ${e.kind==="game"?`<div class="rv-card"><div class="rv-step">Kuinka paljon pelasit? (min yhteensä)</div><div class="rv-min" role="group" aria-label="Peliaika">${[5,10,15,20,25,30,40,50,60,80].map(m=>`<button type="button" id="rvM${m}" data-m="${m}" aria-pressed="${RV.min===m}">${m}</button>`).join("")}</div></div>`:""}
+  <div class="rv-card"><div class="rv-step">2 · Joukkue ja pelinumero</div>
+    <div class="rv-team" role="group" aria-label="Joukkue">${["Edustus","N2"].map(t=>`<button type="button" id="rvT${t}" data-t="${t}" aria-pressed="${RV.team===t}">${t}</button>`).join(" ")}</div>
+    ${RV.team?`<div class="rv-nums" role="group" aria-label="Pelinumero">${nums.map(n=>`<button type="button" id="rvN${n}" data-n="${n}" aria-pressed="${String(RV.nr)===String(n)}">${n}</button>`).join("")}</div>`:`<p class="rv-sum">Valitse ensin joukkue.</p>`}
+    <label class="rv-sum" for="rvComment">Kommentti (vapaaehtoinen)</label><input id="rvComment" type="text" maxlength="200" value="${RV.comment.replace(/"/g,"&quot;")}" placeholder="Esim. polvi kipeä">
+  </div>
+  ${sentBefore?`<p class="rv-sum">Olet jo lähettänyt RPE:n tästä harjoituksesta tällä puhelimella. Lähetä uudelleen vain, jos edellinen meni väärin.</p>`:""}
+  <a class="rv-send" id="rvSend" href="${rvReady()?rvUrl():"#rpe"}" ${rvReady()?'target="_blank" rel="noopener"':'aria-disabled="true"'}>${rvReady()?`Lähetä RPE ${RV.rpe} · ${RV.team} #${RV.nr}`:"Valitse rasitus ja numero"}</a>
+  <button class="rv-back" type="button" id="rvBack">‹ Viikkorytmiin</button>`;
+  v.querySelectorAll(".rv-sess button").forEach(b=>b.onclick=()=>{RV.sess=ss[+b.dataset.i];RV.min=null;renderRpe();});
+  v.querySelectorAll(".rv-scale button").forEach(b=>b.onclick=()=>{RV.rpe=+b.dataset.r;renderRpe();});
+  v.querySelectorAll(".rv-min button").forEach(b=>b.onclick=()=>{RV.min=+b.dataset.m;renderRpe();});
+  v.querySelectorAll(".rv-team button").forEach(b=>b.onclick=()=>{if(RV.team!==b.dataset.t){RV.team=b.dataset.t;RV.nr=null;LSset("team",RV.team);}renderRpe();});
+  v.querySelectorAll(".rv-nums button").forEach(b=>b.onclick=()=>{RV.nr=b.dataset.n;LSset("nr",RV.nr);renderRpe();});
+  const c=$("rvComment");c.oninput=()=>{RV.comment=c.value;const s=$("rvSend");if(rvReady())s.href=rvUrl();};
+  $("rvSend").onclick=ev=>{if(!rvReady()){ev.preventDefault();return;}const k=rvKey(e)+"|"+RV.team+"|"+RV.nr;const mark=()=>{const s=LS("sent")||[];if(!s.includes(k))LSset("sent",s.concat(k).slice(-60));};
+    if(window.SITE_MODE){ev.preventDefault();const s=$("rvSend");s.setAttribute("aria-disabled","true");s.textContent="Lähetetään…";
+      rvPost(rvParams()).then(()=>{mark();RV.sent="ok";renderRpe();window.scrollTo(0,0);}).catch(()=>{rvQueue(rvParams());mark();RV.sent="queued";renderRpe();window.scrollTo(0,0);});return;}
+    mark();setTimeout(()=>{RV.sent=true;renderRpe();window.scrollTo(0,0);},300);};
+  $("rvBack").onclick=()=>{location.hash="";};
+}
+function route(){const hsh=location.hash.replace(/^#/,"");const m=hsh.match(/^rpe(?:-(\d{4}-\d{2}-\d{2}))?$/);const on=!!m;
+  document.querySelector(".wrap").classList.toggle("rpemode",on);$("rpeView").hidden=!on;
+  if(on){RV.sent=false;if(m[1]){const x=rvSessions().filter(s=>s.date===m[1]);if(x.length)RV.sess=x[x.length-1];}renderRpe();window.scrollTo(0,0);}}
+window.addEventListener("hashchange",route);route();
+renderNext();renderWeek();
+})();
+
+
+});</script>
+<script>
+const T = {
+  kova:{n:"Kova",c:"--kova",h:100}, keski:{n:"Keskitaso",c:"--keski",h:66},
+  kevyt:{n:"Kevyt",c:"--kevyt",h:38}, sali:{n:"Sali",c:"--sali",h:55},
+  peli:{n:"Peli",c:"--peli",h:92}, lepo:{n:"Lepo",c:"--lepo",h:6}
+};
+const DN=["Ma","Ti","Ke","To","Pe","La","Su"];
+const S=[
+  {ph:"marraskuu",d:"19.–27.11.",w:"47–48",t:"Koeviikko (2. jakso)",e:"Lukiolaisille vapaaehtoinen. Lopullinen karsinta siirtyy pe 4.12."},
+  {ph:"talvi",d:"30.11.–4.12.",w:"49",t:"Edustus mukaan ja try outin viimeinen viikko",e:"Testit ma 30.11. ja pe 4.12., lopulliset päätökset pe 4.12. harjoituksen jälkeen"},
+  {ph:"talvi",d:"19.12.–10.1.",w:"51–1",t:"Joululoma",e:"Joulutauko 21.12.–3.1., omatoiminen ohjelma"},
+  {ph:"talvi",d:"1.–9.2.",w:"5–6",t:"Koeviikko (3. jakso)",e:"Lukiolaisille vapaaehtoinen"},
+  {ph:"kevat",d:"1.–5.3.",w:"9",t:"Talviloma",e:"Testit siirretty viikolle 10 (ma 8.3. ja to 11.3.)"},
+  {ph:"kevat",d:"16.3.–2.4.",w:"11–13",t:"Ylioppilaskirjoitukset",e:"Abi vapaa omana koepäivänään ja edellisenä päivänä"},
+  {ph:"kevat",d:"25.–29.3.",w:"12–13",t:"Pääsiäisloma",e:"Pitkäperjantai 26.3. vapaa"},
+  {ph:"kevat",d:"5.–13.4.",w:"14–15",t:"Koeviikko (4. jakso)",e:"Lukiolaisille vapaaehtoinen"}
+];
+
+const salitaysi={t:"sali",title:"Sali: täysi voimaharjoitus",sub:"Oma salivalmentaja · 48 h ennen torstain kovinta harjoitusta",rpe:"RPE 6",
+  rows:[["","Alaraajat: kyykky, askelkyykky, maastaveto, hip thrust – tekniikka ennen kuormaa"],["","Nordic hamstring 1–2 sarjaa"],["","Hyppy- ja alastulotekniikka, polvet linjassa"],["","Keskivartalo, lantio ja nilkat"]]};
+const salikevyt={t:"kevyt",title:"Sali: kevennetty",sub:"Pelin jälkeen, ei raskaita jalkaliikkeitä",rpe:"RPE 3–4",
+  rows:[["","Ylävartalo ja keskivartalo"],["","Liikkuvuus ja kehonhuolto"],["","Ei raskaita jalkaliikkeitä eikä hyppyjä"]]};
+const lepo={t:"lepo",title:"Lepo",sub:"Täysi lepopäivä",rows:[]};
+const maKeski={t:"keski",title:"Kenttä: teema ja tekniikka",sub:"90 min · MV-valmentaja · futsalia pelanneille palauttava versio",rpe:"RPE 5–6",
+  rows:[["0–20","FIFA 11+ osat 1–3"],["20–35","Rondot 7v3, kaksi kosketusta"],["35–60","Viikon teema asemilla (4 × 10 pelaajaa)"],["60–73","8v8 + MV kahdella puolikkaalla"],["73–85","MAS-juoksu viikoilla, jotka on merkitty (15 s / 15 s tai 30 s / 30 s)"],["85–90","Jäähdyttely ja palaute"],["","Viikonloppuna futsalia pelanneet: teemaosio ja rondot mukana, ei MAS-juoksua eikä 8v8:aa, tilalle 15 min kevyt hölkkä ja liikkuvuus"]]};
+const toKova={t:"kova",title:"Kenttä: viikon kovin",sub:"90 min · MV-valmentaja",rpe:"RPE 7–8",
+  rows:[["0–20","FIFA 11+ osat 1–3, plyometria"],["20–30","Nopeus: 4 × 20 m tai 3 × 30 m, täysi palautus"],["30–55","Teemaharjoite isolla alueella, esim. 9v9 kolmella vyöhykkeellä"],["55–85","11v11 edustus vs. N2 + täydennykset, 3 × 10 min"],["85–90","Jäähdyttely"]]};
+const peKevyt={t:"kevyt",title:"Kenttä: aktivointi ja erikoistilanteet",sub:"60 min",rpe:"RPE 3–4",
+  rows:[["0–15","11+ osa 1 ja dynaaminen liikkuvuus"],["15–30","4v4–5v5 pienellä alueella, 4 × 2 min"],["30–55","Kulmat, vapaat ja rajaheitot vuorotellen"],["55–60","Reaktiolähdöt 4 × 10 m"]]};
+
+const P = {
+  marraskuu:{name:"Marraskuu",dates:"vk 45–48 · N2 ja try out",types:{
+    tryout:{name:"N2 ja try out",note:"Marraskuussa harjoittelee vain Naiset 2. Try outiin osallistuvat ulkopuoliset pelaajat ovat mukana maanantain ja perjantain kenttäharjoituksissa. Torstaisin N2:lla on Hyrox oman vetäjän johdolla (5.11.–10.12.). Edustus aloittaa ma 30.11., ja lopullinen karsinta on pe 4.12.",
+      days:[
+        {t:"keski",title:"Kenttä: N2 + try out",sub:"90 min · MV-valmentaja · 25–35 pelaajaa",rpe:"RPE 6–7",rows:[["0–20","FIFA 11+ taso 1"],["20–35","Rondot kolmella alueella"],["35–55","Teemaharjoite: 1v1, prässin laukaisija 4v6 tai siirtymä 3v2 → 2v1"],["55–85","2 × 8v8 + MV puolikkailla kentillä, try outin arviointilomake"],["85–90","Jäähdyttely"]]},
+        {t:"sali",title:"Sali: täysi voimaharjoitus",sub:"Oma salivalmentaja · N2",rpe:"RPE 6",rows:[["","Alaraajat: kyykky, askelkyykky, maastaveto, hip thrust – tekniikka ennen kuormaa"],["","Nordic hamstring 1–2 sarjaa"],["","Hyppy- ja alastulotekniikka, polvet linjassa"],["","Keskivartalo, lantio ja nilkat"]]},
+        lepo,
+        {t:"kova",title:"Hyrox (N2)",sub:"Oma Hyrox-vetäjä",rpe:"Kova",rows:[["","Sisällön suunnittelee Hyrox-vetäjä"],["","Try out -pelaajat eivät osallistu"]]},
+        {t:"keski",title:"Kenttä: pelit ja arviointi",sub:"90 min · N2 + try out",rpe:"RPE 6",rows:[["0–20","11+ osa 1 ja osa 3"],["20–35","Rondot kolmella alueella"],["35–85","3 kenttää 6v6–7v7, joukkueet vaihtuvat, arviointilomake"],["85–90","Jäähdyttely"]]},
+        {t:"peli",title:"Futsal (N2 21.11.)",sub:"N2 turnaus la 21.11.",rows:[["","Edustuksen futsalpelaajat pelaavat ykkösessä omalla aikataulullaan"]]},
+        lepo]}
+  }},
+  talvi:{name:"Joulu–helmikuu",dates:"vk 49–8 · koko ryhmä",types:{
+    n2futsal:{name:"N2: futsalviikko",note:"Torstaina 3.12. ja 10.12. molemmat joukkueet tekevät Hyroxin kenttäharjoituksen sijaan. N2 pelaa futsal kolmosen turnauksen (kaksi peliä samana päivänä) noin kerran kuussa: 19.12., 9.1., 31.1., 13.2. ja 20.2. Turnauksen jälkeisenä maanantaina pelanneet tekevät kenttäharjoituksesta palauttavan version.",
+      days:[maKeski,salitaysi,lepo,toKova,peKevyt,
+        {t:"peli",title:"Futsal kolmonen: turnaus",sub:"2 peliä samana päivänä",rows:[["","Pelien välissä tankkaus ja lämpimänä pysyminen"],["","Rasitus 1–10 kirjataan pelien jälkeen"]]},lepo]},
+    n2:{name:"N2: tavallinen viikko",note:"Ei futsalia viikonloppuna. Koko ryhmä tekee maanantain kenttäharjoituksen täytenä.",
+      days:[maKeski,salitaysi,lepo,toKova,peKevyt,lepo,lepo]},
+    ykkonen:{name:"Ykkösen pelaajat",note:"Noin 17 edustuksen pelaajaa pelaa futsal ykköstä lähes joka viikonloppu, useimmiten lauantaina. Pelin jälkeisenä maanantaina ykkösen pelaajat tekevät kenttäharjoituksesta palauttavan version. Sunnuntaipelin (14.2.) jälkeen myös tiistain sali kevennetään. Ke 6.1. pelin viikolla torstai on keskitasoinen eikä ykkösen pelaajille ole 11v11-osiota.",
+      days:[maKeski,salitaysi,lepo,toKova,peKevyt,
+        {t:"peli",title:"Futsal ykkönen",sub:"Yksi peli · useimmiten lauantaina",rows:[["","Vapaat viikonloput: 28.–29.11. ja joulu–uusivuosi"],["","Viimeinen peli la 27.2."]]},lepo]}
+  }},
+  kevat:{name:"Maalis–huhtikuu",dates:"vk 9–15 · harjoituskausi",types:{
+    harj:{name:"Harjoitusotteluviikko",note:"Futsal on ohi. Harjoitusottelu pelataan lauantaina, ja torstai pysyy viikon kovimpana. Maanantain MAS-paikalla tehdään nopeuskestävyyttä (6 × 30 m, 20 s palautus). 2. pääsiäispäivä ma 29.3. ja pitkäperjantai 26.3. ovat vapaita.",
+      days:[
+        {t:"keski",title:"Kenttä: teema ja nopeuskestävyys",sub:"90 min · MV-valmentaja",rpe:"RPE 6–7",rows:[["0–20","FIFA 11+ taso 3"],["20–35","Rondot tai vastaprässirondo 6v4"],["35–60","Teema: erikoistilanteet, prässi tai joukkuekohtainen pelisuunnitelma"],["60–75","8v8 + MV"],["75–85","SK 2 × 6 × 30 m, 20 s / 4 min palautus"],["85–90","Jäähdyttely"]]},
+        salitaysi,
+        lepo,
+        {t:"kova",title:"Kenttä: ottelusimulaatio",sub:"90 min · MV-valmentaja",rpe:"RPE 8",rows:[["0–20","FIFA 11+ taso 3"],["20–30","Nopeus N2–N4"],["30–85","Siirtymäpeli ja 11v11, huhtikuussa 2 × 25 min ottelusimulaatio"],["85–90","Jäähdyttely"]]},
+        {t:"kevyt",title:"Aktivointi ennen ottelua",sub:"60 min",rpe:"RPE 3",rows:[["0–15","11+ osa 1 ja liikkuvuus"],["15–30","4v4–5v5, 4 × 2 min"],["30–55","Ottelun erikoistilanteet"],["55–60","N5 3 × 10 m"]]},
+        {t:"peli",title:"Harjoitusottelu",sub:"Edustus ja N2",rows:[["","Ottelut sovitaan viikoille 10–14"]]},lepo]}
+  }},
+  sarjaan:{name:"Sarjaan",dates:"vk 16–17 · keventäminen",types:{
+    kevennys:{name:"Keventämisviikko (vk 16)",note:"Harjoitusmäärää vähennetään 30–40 %, mutta teho säilyy: pelit ja sprintit yhtä kovia, mutta niitä on vähemmän.",
+      days:[
+        {t:"keski",title:"Kenttä: tekniikka ja teema",sub:"75 min · MV-valmentaja",rpe:"RPE 6",rows:[["0–20","FIFA 11+ taso 3"],["20–35","Rondot 7v3"],["35–55","9v9 + MV joukkueittain, 2 × 7 min"],["55–65","Lentävä 20 m × 2"],["65–75","Jäähdyttely"]]},
+        salikevyt,
+        lepo,
+        {t:"keski",title:"Kenttä: lyhyt ottelusimulaatio",sub:"75 min",rpe:"RPE 7",rows:[["0–20","FIFA 11+ taso 3"],["20–28","3 × 20 m"],["28–68","11v11 2 × 18 min"],["68–75","Jäähdyttely"]]},
+        {t:"kevyt",title:"Aktivointi",sub:"50 min",rpe:"RPE 3",rows:[["0–15","11+ osa 1"],["15–30","4v4 3 × 2 min"],["30–45","Erikoistilanteet"],["45–50","N5 3 × 10 m"]]},
+        {t:"peli",title:"Harjoitusottelu",sub:"Jos sovittu",rows:[]},lepo]},
+    ottelu:{name:"Sarjaviikko (vk 17)",note:"Rytmi rakennetaan sarjan ensimmäisen ottelun mukaan (MD = ottelupäivä). Oletus: ottelu viikonloppuna 1.–2.5. Tarkka päivä vielä auki.",
+      days:[
+        {t:"keski",title:"MD-5: vastustajakohtainen",sub:"90 min · MV-valmentaja",rpe:"RPE 7",rows:[["0–20","FIFA 11+ taso 3"],["20–35","Rondot ja 3 s vastaprässi"],["35–60","Vastustajan rakentelu ja oma prässi, 9v9 + MV"],["60–80","8v8 + MV 2 × 8 min"],["80–90","3 × 20 m ja jäähdyttely"]]},
+        {t:"sali",title:"MD-4: sali, voima ylläpitävästi",sub:"Oma salivalmentaja",rpe:"RPE 5",rows:[["","Alaraajat 2–3 sarjaa, kuorma ennallaan mutta toistoja vähemmän"],["","Nordic hamstring 1 sarja"],["","Keskivartalo ja nilkat"]]},
+        lepo,
+        {t:"keski",title:"MD-2: lyhyt ja terävä",sub:"75 min",rpe:"RPE 6–7",rows:[["0–20","FIFA 11+ taso 3"],["20–28","4 × 10 m"],["28–58","Avauskokoonpanot vastakkain 2 × 12 min"],["58–70","Ottelun erikoistilanteet"],["70–75","Jäähdyttely"]]},
+        {t:"kevyt",title:"MD-1: aktivointi",sub:"45 min",rpe:"RPE 2–3",rows:[["0–10","11+ osa 1"],["10–20","5v2-rondot 3 × 2 min"],["20–40","Erikoistilanteet kävellen"],["40–45","N5 3 × 10 m"]]},
+        {t:"peli",title:"Sarjaottelu (MD)",sub:"Kakkonen ja kolmonen",rows:[["","Vappu 1.5. – tarkista ottelupäivä sarjaohjelmasta"]]},
+        {t:"lepo",title:"Lepo tai palauttava",sub:"MD+1",rows:[["","Pelanneet: kevyt palauttava. Muut: lepo"]]}]}
+  }}
+};
+
+let phase="marraskuu", type=null, open=null;
+try{const h=location.hash.slice(1); if(P[h]) phase=h;}catch(e){}
+
+const $=id=>document.getElementById(id);
+function css(v){return `var(${v})`}
+
+function renderTabs(){
+  $("tabs").innerHTML="";
+  Object.entries(P).forEach(([k,p])=>{
+    const b=document.createElement("button");
+    b.setAttribute("role","tab");b.id="tab-"+k;
+    b.setAttribute("aria-selected",k===phase);
+    b.innerHTML=`${p.name}<small>${p.dates}</small>`;
+    b.onclick=()=>{phase=k;type=null;open=null;try{history.replaceState(null,"","#"+k)}catch(e){};render()};
+    $("tabs").appendChild(b);
+  });
+}
+function render(){
+  renderTabs();
+  const types=P[phase].types;
+  if(!type||!types[type]) type=Object.keys(types)[0];
+  $("seg").innerHTML="";
+  Object.entries(types).forEach(([k,t])=>{
+    const b=document.createElement("button");b.id="type-"+k;
+    b.textContent=t.name;b.setAttribute("aria-pressed",k===type);
+    b.onclick=()=>{type=k;open=null;render()};
+    $("seg").appendChild(b);
+  });
+  $("seg").parentElement.hidden=Object.keys(types).length<2;
+  const W=types[type];
+  $("note").textContent=W.note;
+  const se=S.filter(s=>s.ph===phase);
+  $("schoolWrap").hidden=!se.length;
+  $("school").innerHTML=se.map(s=>`<div class="row"><span class="when">${s.d}<br>vk ${s.w}</span><span class="what"><strong>${s.t}</strong><span>${s.e}</span></span></div>`).join("");
+  $("bars").innerHTML="";$("daylabels").innerHTML="";
+  W.days.forEach((d,i)=>{
+    const t=T[d.t];
+    const b=document.createElement("button");b.className="bar"+(open===i?" sel":"");
+    b.setAttribute("aria-label",`${DN[i]}: ${d.title}`);
+    b.innerHTML=`<span class="b" style="height:${t.h}%;background:${css(t.c)}"></span>`;
+    b.onclick=()=>toggle(i,true);
+    $("bars").appendChild(b);
+    const l=document.createElement("div");l.innerHTML=`${DN[i]}<small>${t.n}</small>`;
+    $("daylabels").appendChild(l);
+  });
+  $("legend").innerHTML=Object.values(T).map(t=>`<span><i style="background:${css(t.c)}"></i>${t.n}</span>`).join("");
+  $("list").innerHTML="";
+  W.days.forEach((d,i)=>{
+    const t=T[d.t];
+    const el=document.createElement("div");el.className="day";el.id="day-"+i;
+    const btn=document.createElement("button");btn.setAttribute("aria-expanded",open===i);
+    btn.innerHTML=`<span class="stripe" style="background:${css(t.c)}">${DN[i]}</span>
+      <span class="title"><strong>${d.title}</strong><span>${d.sub||""}</span></span>
+      <span class="pill" style="color:${css(t.c)}">${d.rpe||t.n}</span>`;
+    btn.onclick=()=>toggle(i,false);
+    el.appendChild(btn);
+    if(open===i){
+      const det=document.createElement("div");det.className="detail";
+      if(d.rows.length){
+        det.innerHTML=`<div class="tw"><table>${d.rows.map(r=>`<tr><td>${r[0]?r[0]+" min":"–"}</td><td>${r[1]}</td></tr>`).join("")}</table></div>`;
+      } else det.innerHTML=`<p>Ei harjoitusta.</p>`;
+      el.appendChild(det);
+    }
+    $("list").appendChild(el);
+  });
+}
+function toggle(i,scroll){
+  open=open===i?null:i;render();
+  if(scroll&&open!==null){const e=$("day-"+i);e&&e.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"nearest"})}
+}
+$("allBody").innerHTML=S.map(s=>`<tr><td>${s.d}</td><td>${s.w}</td><td>${s.t}</td><td>${s.e}</td></tr>`).join("");
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(P[h]){phase=h;type=null;open=null;render()}});
+render();
+</script>
+
+</body></html>
